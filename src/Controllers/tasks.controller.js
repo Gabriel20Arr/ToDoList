@@ -1,4 +1,3 @@
-import req from "express/lib/request.js"
 import Task from "../Models/task.model.js"
 
 export const getTasks = async (req, res) => {

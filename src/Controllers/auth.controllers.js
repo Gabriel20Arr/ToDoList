@@ -8,7 +8,6 @@ export const registers = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
-
         const passBcrypt = await bcrypt.hash(password, 10)
         
         const newUser = new User({
@@ -32,7 +31,6 @@ export const registers = async (req, res) => {
     
     } catch (error) {
         console.log(error);
-        
     }
 
 }
@@ -84,3 +82,32 @@ export const profile = async (req, res) => {
         updatedAt: userFound.updatedAt
     })
 }
+
+
+export const putPassword = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const newPassword = req.body.password;
+
+        if (!newPassword) {
+            return res.status(400).json({ message: 'New password is required' });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        user.password = hashedPassword;
+
+        await user.save();
+
+        return res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
+};

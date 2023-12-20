@@ -6,7 +6,8 @@ import {
     postTask,
     deleteTask,
     putTask
-} from "../Controllers/tasks.contrroller.js"
+} from "../Controllers/tasks.controller.js"
+
 
 const router = Router()
 
