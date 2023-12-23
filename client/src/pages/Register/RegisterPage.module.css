@@ -1,0 +1,84 @@
+.container{
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background: url(/imgTests/Universo.jpg) fixed no-repeat;
+    background-size: cover;
+    
+}
+
+
+.formm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 280px;
+    width: 280px;
+
+    border: 1px solid white;
+
+    padding: 10px;
+    backdrop-filter: blur(15px);
+}
+
+.title{
+    font-size: 22px;
+    font-weight: bolder;
+    border-bottom: 1px solid white;
+
+    width: 85%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.inputs{
+    border: 1px solid black;
+    
+    width: 85%;
+
+    margin-bottom: 10px;
+    padding: 2px;
+
+    color: black;
+}
+
+.errores{
+    /* border-bottom: 1px solid white; */
+    
+    width: 85%;
+    
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    
+    color: white;
+    text-align: start;
+
+    margin-bottom: 10px;
+}
+
+.errores2{
+    background-color: red;
+    border: 1px solid red;
+    
+    width: 85%;
+    
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    
+    color: white;
+    text-align: start;
+
+    padding: 2px;
+    margin-bottom: 10px;
+}

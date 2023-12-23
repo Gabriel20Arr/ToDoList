@@ -8,6 +8,11 @@ export const registers = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
+
+        const foundUser = await User.findOne({ email });
+        if(foundUser) 
+            return res.status(400).json(["the email is already in use"]) 
+        
         const passBcrypt = await bcrypt.hash(password, 10)
         
         const newUser = new User({
@@ -41,7 +46,7 @@ export const login = async (req, res) =>  {
 
     try {
         const userFound = await User.findOne({ email })
-        if(!userFound) return res.status(400).json({message: "User not found"})
+        if(!userFound) return res.status(400).json(["User not found"])
 
         const isMatch = await bcrypt.compare(password, userFound.password)
         if(!isMatch) return res.status(400).json({message: "Incorrect password"})
