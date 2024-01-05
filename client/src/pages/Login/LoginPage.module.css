@@ -82,3 +82,20 @@
     padding: 2px;
     margin-bottom: 10px;
 }
+
+
+.textC{
+    /* background-color: aliceblue; */
+    
+    display: flex;
+    justify-content: flex-end;
+    width: 220px;
+
+    margin-bottom: 15px;
+}
+
+.textC2 {
+    /* color: rgb(37, 37, 253); */
+    border-bottom: 1px solid blue;
+    font-size: 9px;
+}
