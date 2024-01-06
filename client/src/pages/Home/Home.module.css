@@ -20,3 +20,24 @@
     min-height: 100vh;
     width: 78%;
 }
+
+.cardTask{
+    position: relative;
+    right: 0;
+    
+    /* display: none; */
+    
+    height: 100vh;
+    width: 30%;
+
+    background-color: red;
+}
+
+.cardTask{
+    animation:slide-left 0.5s linear both
+}
+
+@keyframes slide-left { 
+    0% { transform:translateX(0) }
+    100% { transform:translateX(-100px) }
+}

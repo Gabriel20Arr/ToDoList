@@ -7,6 +7,7 @@ import { TaskPage } from "./pages/TaskPage/TaskPage"
 import { TaskFormPage } from "./pages/TaskForm/TaskFormPage"
 import { ProfilePage } from "./pages/Profile/ProfilePage"
 import { ProtectedRoutes } from './ProtectedRoutes'
+import { ShowTask } from './components/ShowTask/ShowTask'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/tasks' element={<TaskPage />} />
           <Route path='/add-task' element={<TaskFormPage />} />
           <Route path='/task/:id' element={<TaskFormPage />} />
+          <Route path='/Show-task/:id' element={<ShowTask />} />
           <Route path='/profile' element={<ProfilePage />} />
         </Route>
         

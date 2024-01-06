@@ -1,19 +1,22 @@
-import { useForm } from "react-hook-form"
 import { useTasks } from "../../contexts/taskContext"
+import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 
 import style from "./TaskFormPage.module.css"
 
 export const TaskFormPage = () => {
   const { register, handleSubmit } = useForm()
   const {  createTasks } = useTasks()
+  const navigate = useNavigate()
 
 
   const goBack = () => {
     window.history.back();
   }
   
-  const onSubmit = handleSubmit((data) => {
-    createTasks(data);
+  const onSubmit = handleSubmit( async (data) => {
+    await createTasks(data);
+    navigate('/')
   });
 
   return (

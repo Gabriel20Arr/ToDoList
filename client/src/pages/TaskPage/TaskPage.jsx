@@ -1,14 +1,11 @@
 import { useEffect } from "react"
 import { useTasks } from "../../contexts/taskContext"
+import { TaskCard } from "../../components/TaskCard/TaskCard"
 
 import style from "./TaskPage.module.css"
 
 export const TaskPage = () => {
   const { AllTask, task } = useTasks()
-
-  const viewTask = (_id) => {
-    console.log("View task", _id);
-  }
 
   useEffect(() => {
     AllTask()
@@ -21,15 +18,10 @@ export const TaskPage = () => {
       ) : (
         <h1 className={style.noTask}>There are no tasks</h1>
       )}
-      <div className={style.container} >         
+      <div className={style.container}>         
         { 
           task.map((task) => (
-            <div key={task._id} className={style.task} onClick={viewTask}>
-              <h2 className={style.title}>{task.title}</h2>
-              <p className={style.description}>
-                {task.description}
-              </p>
-            </div>
+            <TaskCard task={task} key={task._id} />
           ))
         }
       </div>
