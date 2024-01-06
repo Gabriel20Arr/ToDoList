@@ -1,5 +1,6 @@
 .conteiner {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
 
@@ -7,6 +8,25 @@
     align-items: center;
 
     background-color: #eeee;
+}
+
+.conteinerBtn{
+    display: flex;
+    width: 90%;
+
+    align-items: flex-start;
+    background-color: #eeee;
+}
+
+.btnBack{
+    border-radius: 20px;
+    background-color: blue;
+    
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+
+    text-align: center;
 }
 
 .title{
