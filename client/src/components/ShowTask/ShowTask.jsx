@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTasks } from '../../contexts/taskContext';
 
+import style from "./ShowTask.module.css"
+
+
 export const ShowTask = () => {
   const params = useParams();
   const { taskById } = useTasks();
@@ -20,21 +23,23 @@ export const ShowTask = () => {
   }, []);
 
   return (
-    <div className='text-black' id='showTask'>
-      { dataTask ? (
-        <div>
+    <div className={style.container} id='showTask'>
+      { !dataTask ? (<p>Loading task...</p>) : (
+        <div className={style.containerTask}> 
           <h2>{dataTask.title}</h2>
           <p>{dataTask.description}</p>
           {
             dataTask.date ? (
                 <span>{new Date(dataTask.date).toLocaleDateString()}</span>
-            ) : (
-                ''
-            )
+            )  :  (
+
+            <div className={style.loaderContainer}> 
+              <span className={style.loaderC}>
+                Loading Task <span className={style.loaders}></span>
+              </span>
+            </div>)
           }
-        </div> 
-        ) : (
-            <p>Loading task...</p>
+        </div>
         )
       }
     </div>
