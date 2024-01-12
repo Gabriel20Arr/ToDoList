@@ -1,5 +1,5 @@
 .container{
-    background-color: red;
+    /* background-color: red; */
     min-height: 100vh;
     width: 100%;
 
@@ -16,28 +16,27 @@
 }
 
 .task{
-    background-color: green;
-    min-height: 100vh;
+    /* background-color: green; */
+    max-height: 100vh;
     width: 100%;
+
+    /* overflow-y: scroll; */
+    overflow-y: auto;
 }
 
-.cardTask{
-    position: relative;
+.Stopwatch{
+    /* background-color: blue; */
+    position: absolute;
+
     right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-    display: block;
-    
-    height: 100vh;
-    width: 30%;
+    height: 150px;
+    width: 100px;
 
-    background-color: red;
-}
-
-.cardTask{
-    animation:slide-left 0.5s linear both
-}
-
-@keyframes slide-left { 
-    0% { transform:translateX(0) }
-    100% { transform:translateX(-100px) }
+    margin-right: 20px;
 }

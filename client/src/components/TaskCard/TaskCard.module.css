@@ -1,14 +1,12 @@
 
-.container{
-/* sds */
-}
 .task{
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    height: 70px;
-    width: 250px;
+    height: 80px;
+    max-width: 350px;
+    /* overflow: hidden; */
 
     padding: 0 10px;
 
@@ -16,33 +14,79 @@
     border-radius: 5px;
 
     background-color: rgb(84, 152, 255);
+
 }
 
 .task:hover{
     border: 1px solid white;
+    cursor: pointer;
+}
+
+/* new content - click*/
+
+.clicked {
+    border: 2px solid red;
+    background-color: lightgray;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: fit-content;
+    width: 350px;
+
+    padding: 0 10px;
+
+    border: 1px solid black; 
+    border-radius: 5px;
+
+    background-color: rgb(84, 152, 255);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title{
-    max-width: 100%;
+    max-width: fit-content;
     min-height: fit-content;
 
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: bolder;
-    text-align: center;
+    text-align: start;
     color: white;
 
     margin-bottom: 5px;
 }
 
+.description0{
+    /* border: 1px solid black; */
+    
+    max-width: 350px;
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    font-size: 11px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: white;
+    
+    display: flex;
+    align-items: center;
+    padding: 0 5px ;
+}
+
 .description{
+    display: block;
+    
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-radius: 5px;
     
     max-width: 100%; /* Cambiado a max-width */
     min-height: 68%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 
     font-size: 11px;
@@ -56,50 +100,93 @@
     white-space: pre-wrap;
 }
 
+/* Content Date and Button */
+
+.contentDataBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    /* border: 1px solid ; */
+    height: 3em;
+    width: 100%;
+}
 
 .date{
     
     max-width: 100%; /* Cambiado a max-width */
-    min-height: 7%;
+    /* min-height: 7%; */
     overflow: hidden;
     position: relative;
 
+    font-family: 'Times New Roman', Times, serif;
     font-size: 11px;
-    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
     text-align: center;
-    color: white;
+    color: black;
     
     padding: 3px;
 
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
+    /* overflow-wrap: break-word;
+    white-space: pre-wrap; */
 }
 
-/* click */
+/* content button delete and update */
 
-.clicked {
-    /* Estilos que deseas aplicar cuando se hace clic */
-    border: 2px solid red;
-    background-color: lightgray;
+.contentDelUpd{
+    display: flex;
+    justify-content: space-between;
 
-        display: flex;
-        flex-direction: column;
-        align-items: end;
+    width: fit-content;
+
+    padding: 0 5px;
+}
+
+/* button delete */
+
+.bntDelUpd{
+    border: 1px solid black;
+    border-radius: 20px;
     
-        height: 100vh;
-        width: 250px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0px 8px;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11px;
+    font-weight: bolder;
+    text-align: center;
     
-        padding: 0 10px;
-    
-        border: 1px solid black;
-        border-radius: 5px;
-    
-        background-color: rgb(84, 152, 255);
-        animation:slide-left 0.5s linear both
+    color: black;
+    background-color: aliceblue;
+
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.bntDelUpd{
+    cursor: pointer;
+}
+
+/* stopwatch */
+.sw{
+    width: 100%;
+    border-top: 1px solid black;
+
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.sw2{
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 20px;
+
+    background-color: red;
+}
+
+.stopwatch-active .task {
+    pointer-events: none;
   }
-
-@keyframes slide-left { 
-    0% { transform:translateX(0) }
-    100% { transform:translateX(-100px) }
-}
   

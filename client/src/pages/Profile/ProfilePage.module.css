@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100%;
+
+}
+
+.container1{
+    display: flex;
+    flex-direction: column;
+
+    /* justify-content: center; */
+    align-items: center;
+
+    border: 1px solid black;
+
+    width: fit-content;
+    height: fit-content;
+
+    padding: 20px;
+}
+
+
+.items{
+    /* width: 100%; */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: start;
+    justify-content: center;
+}

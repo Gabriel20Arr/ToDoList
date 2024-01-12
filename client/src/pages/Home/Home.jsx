@@ -1,4 +1,5 @@
 import { Navbar } from "../../components/Navbar/Navbar"
+// import StopWatch from "../../components/StopWatch/StopWatch"
 import { TaskPage } from "../TaskPage/TaskPage"
 
 import style from "./Home.module.css"
@@ -16,7 +17,8 @@ export const Home = () => {
         <TaskPage />
       </div>
 
-      {/* <div className={style.cardTask}>
+      {/* <div className={style.Stopwatch}>
+        <StopWatch />
       </div> */}
 
     </div>

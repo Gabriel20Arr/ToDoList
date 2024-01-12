@@ -8,6 +8,7 @@ import { TaskFormPage } from "./pages/TaskForm/TaskFormPage"
 import { ProfilePage } from "./pages/Profile/ProfilePage"
 import { ProtectedRoutes } from './ProtectedRoutes'
 import { ShowTask } from './components/ShowTask/ShowTask'
+import StopWatch from './components/StopWatch/StopWatch'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/task/:id' element={<TaskFormPage />} />
           <Route path='/Show-task/:id' element={<ShowTask />} />
           <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/stop-watch' element={<StopWatch />} />
         </Route>
         
       </Routes>
