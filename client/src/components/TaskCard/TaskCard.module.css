@@ -22,12 +22,49 @@
     cursor: pointer;
 }
 
+/* Header */
+.Cheader{
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+}
+
+.Ctitle{
+    width: 55%;
+
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: blue; */
+}
+
+.Cbtns{
+    width: 45%;
+
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: red; */
+}
+
+.btn {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+
+    border-radius: 50%;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+
+
 /* new content - click*/
 
 .clicked {
-    border: 2px solid red;
-    background-color: lightgray;
-
     display: flex;
     flex-direction: column;
     align-items: center;

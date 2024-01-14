@@ -45,8 +45,8 @@
         
     padding: 10px;
     
-    min-height: 200px;
-    width: 200px;
+    min-height: 250px;
+    width: 250px;
 
     border: 1px solid black;
     border-radius: 10px;
@@ -62,7 +62,7 @@
 
 .inputs2{
     border: 1px solid black;
-    height: 70px;
+    height: 150px;
 
     padding-left: 3px;
 }
