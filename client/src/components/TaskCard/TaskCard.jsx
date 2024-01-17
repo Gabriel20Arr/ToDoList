@@ -2,23 +2,49 @@ import { useTasks } from "../../contexts/taskContext"
 // import { useParams } from 'react-router-dom';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import imgX from "/imgTests/boton-eliminar-3.png"
 
 import StopWatch  from "../StopWatch/StopWatch"
-import imgX from "../../../public/imgTests/boton-eliminar.png"
+import { Calendar } from "react-calendar"
 
+import 'react-calendar/dist/Calendar.css';
 import style from "./TaskCard.module.css"
 
 export const TaskCard = ({ task }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isPulsado, setIsPulsado] = useState(false);
   const { deleteTask, taskById } = useTasks()
+  const [ value, setValue ] = useState(null)
+  // const [alertShown, setAlertShown] = useState(false);
 
-    const ShowCard = async ( id )  => {
+    const ShowCard = ()  => {
        setIsClicked(!isClicked);
+    }
+
+    const pulsado = ()  => {
+      setIsPulsado(!isPulsado)
+      // console.log(isPulsado);
     }
   
     const handleStopWatchClick = (event) => {
     // Evitar que el clic en el cronómetro propague al contenedor TaskCard
     event.stopPropagation();
+    };
+
+    // Agregar esta función para mostrar una alerta cuando el valor sea igual a la fecha actual
+    const showAlertIfCurrentDate = () => {
+      const currentDate = new Date();
+      const taskCompletionDate = value;
+
+      if (
+        taskCompletionDate &&
+        taskCompletionDate.getDate() === currentDate.getDate() &&
+        taskCompletionDate.getMonth() === currentDate.getMonth() &&
+        taskCompletionDate.getFullYear() === currentDate.getFullYear()
+      ) {
+        alert('¡Time from task fished!');
+        setValue(null)
+      }
     };
     
   return (
@@ -62,6 +88,21 @@ export const TaskCard = ({ task }) => {
               <div className={style.sw}>
                 <div className={style.sw2} onClick={handleStopWatchClick}>
                   <StopWatch />
+                  {/* <input type="date" className={style.calendar} /> */}
+                    <div className={style.calendar}>
+                        
+                        <button onClick={pulsado} className="bg-white font-bold rounded-xl p-1">Calendar</button>
+                        { 
+                          isPulsado ? 
+                            <Calendar onChange={setValue} value={value}/> 
+                          : (value && (
+                             <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                            ))  
+                        }
+                             {showAlertIfCurrentDate()}
+
+                    </div>
+                      
                 </div>
               </div> : ''
             }

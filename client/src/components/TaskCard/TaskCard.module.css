@@ -47,11 +47,11 @@
 }
 
 .btn {
-    width: 18px;
-    height: 18px;
-    background-color: white;
+    width: 19px;
+    height: 19px;
+    /* background-color: white; */
 
-    border-radius: 50%;
+    /* border-radius: 50%; */
 
     transition: transform 0.3s ease-in-out;
 }
@@ -62,7 +62,7 @@
 
 
 
-/* new content - click*/
+/* new content - click */
 
 .clicked {
     display: flex;
@@ -205,7 +205,7 @@
     cursor: pointer;
 }
 
-/* stopwatch */
+/* Container stopwatch and Date */
 .sw{
     width: 100%;
     border-top: 1px solid black;
@@ -215,15 +215,25 @@
 }
 
 .sw2{
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    
+    width:100%;
     height: fit-content;
 
-    border-radius: 20px;
-
-    background-color: red;
+    /* border-radius: 50px; */
 }
 
 .stopwatch-active .task {
     pointer-events: none;
-  }
+}
+
+.calendar {
+    /* display: none; */
+    
+    width: 250px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
   

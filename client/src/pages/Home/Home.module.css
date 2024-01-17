@@ -25,7 +25,14 @@
 }
 
 .Stopwatch{
-    /* background-color: blue; */                 
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: rgb(15, 128, 227);
+    color: white;
+
+    display: block;
+    
     position: absolute;
 
     right: 0;
@@ -35,8 +42,11 @@
     justify-content: center;
     align-items: center;
     
-    height: 150px;
-    width: 100px;
+    height: fit-content;
+    width: fit-content;
 
-    margin-right: 20px;
+    padding: 3px;
+
+    margin-right: 35px;
+    margin-bottom: 20px;
 }
