@@ -39,6 +39,7 @@ export function TaskProvider({ children }) {
 
     const UpdateTask = async (id, task) => {
         const res = await updateTaskRequest(id, task)
+        // console.log(res);
     }
 
     const deleteTask = async (id) => {

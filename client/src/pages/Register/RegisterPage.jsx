@@ -2,14 +2,37 @@ import styles from "./RegisterPage.module.css"
 
 import { useForm } from "react-hook-form"
 import { useAuth } from '../../contexts/authContext'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 
 function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { signup, isAuthenticated, errores } = useAuth()
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
+
+    const uploadImage = async (e) => {
+      const files = e.target.files;
+      const data = new FormData()
+      data.append("file", files[0])
+      data.append("upload_preset", "todolist")
+      setLoading(true)
+
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dmtzjtgy8/todolist/upload",
+        {
+          method: 'POST',
+          body: data
+        }
+      )
+
+      const file = await res.json();
+      setImage(file.secure_url)
+      console.log(file.secure_url)
+      setLoading(false)
+    }
     
     useEffect(() => {
       if(isAuthenticated) {
@@ -34,6 +57,16 @@ function RegisterPage() {
               </span>
             ))
           }
+          <div className="flex flex-col" >
+            <span>photo</span>
+            <input
+              className=" w-[220px] mb-5" 
+              type="file" 
+
+              onChange={uploadImage}
+            />
+          </div>
+          
           <input type= "username" placeholder="Username" {...register("username", {required: true})} className={styles.inputs}/>
           {
             errors.username && <span className={styles.errores}>❌ Username is requiered</span>

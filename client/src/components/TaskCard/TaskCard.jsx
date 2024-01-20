@@ -7,6 +7,9 @@ import imgX from "/imgTests/boton-eliminar-3.png"
 import StopWatch  from "../StopWatch/StopWatch"
 import { Calendar } from "react-calendar"
 
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
+
 import 'react-calendar/dist/Calendar.css';
 import style from "./TaskCard.module.css"
 
@@ -42,10 +45,18 @@ export const TaskCard = ({ task }) => {
         taskCompletionDate.getMonth() === currentDate.getMonth() &&
         taskCompletionDate.getFullYear() === currentDate.getFullYear()
       ) {
-        alert('¡Time from task fished!');
+        Swal.fire({
+          title: '',
+          text: '¡Time from task fished!',
+          position: "top",
+          icon: 'info',
+          confirmButtonColor: '#3498db',
+        })
         setValue(null)
       }
     };
+
+
     
   return (
     <div>
@@ -89,12 +100,12 @@ export const TaskCard = ({ task }) => {
                 <div className={style.sw2} onClick={handleStopWatchClick}>
                   <StopWatch />
                   {/* <input type="date" className={style.calendar} /> */}
-                    <div className={style.calendar}>
+                    <div className={style.Ccalendar}>
                         
                         <button onClick={pulsado} className="bg-white font-bold rounded-xl p-1">Calendar</button>
                         { 
                           isPulsado ? 
-                            <Calendar onChange={setValue} value={value}/> 
+                            <Calendar className={style.calendar} onChange={setValue} value={value}/> 
                           : (value && (
                              <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
                             ))  
