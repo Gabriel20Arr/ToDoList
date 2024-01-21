@@ -1,9 +1,13 @@
-import styles from "./RegisterPage.module.css"
-
+import axios from "axios"
 import { useForm } from "react-hook-form"
 import { useAuth } from '../../contexts/authContext'
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+import imageUser from "/imgTests/silueta-de-persona.jpg" 
+
+import styles from "./RegisterPage.module.css"
+
+
 
 function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -13,26 +17,27 @@ function RegisterPage() {
 
     const navigate = useNavigate()
 
-    const uploadImage = async (e) => {
-      const files = e.target.files;
-      const data = new FormData()
-      data.append("file", files[0])
-      data.append("upload_preset", "todolist")
-      setLoading(true)
+  const uploadImage = async (e) => {
+    const files = e.target.files[0];
+    const data = new FormData()
+    data.append("file", files)
+    data.append("upload_preset", "todolist")
+    setLoading(true)
 
-      const res = await fetch(
-        "https://api.cloudinary.com/v1_1/dmtzjtgy8/todolist/upload",
-        {
-          method: 'POST',
-          body: data
-        }
-      )
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/dmtzjtgy8/image/upload", data
+    )
 
-      const file = await res.json();
-      setImage(file.secure_url)
-      console.log(file.secure_url)
-      setLoading(false)
-    }
+    // console.log('res', res.data)
+    setImage(res.data.secure_url)
+
+    setLoading(false)
+  }
+
+  // Delete image
+  const DeleteImage = () => {
+    setImage('')
+  }
     
     useEffect(() => {
       if(isAuthenticated) {
@@ -57,14 +62,29 @@ function RegisterPage() {
               </span>
             ))
           }
-          <div className="flex flex-col" >
-            <span>photo</span>
-            <input
-              className=" w-[220px] mb-5" 
-              type="file" 
+          
+          <div className={styles.cIMG} >
+            {/* <span>photo</span> */}
+                  
+            {loading ? (
+              <div className="flex p-2">
+                <img src={imageUser} alt="" className={styles.image2}/>
+                <h2>Loading...</h2>
+              </div>
+            ) : (
+              <img src={image || imageUser} alt='' className={styles.image}/>
+            )}
 
-              onChange={uploadImage}
-            />
+
+            <input
+                className={styles.inputimg} 
+                type="file" 
+                accept='image/*'
+                name='file'
+                // placeholder="select Image"
+                onChange={uploadImage}
+              />
+              {/* <button className='bg-blue-800 text-white rounded-xl border hover:border-black' onClick={DeleteImage}>Delete</button> */}
           </div>
           
           <input type= "username" placeholder="Username" {...register("username", {required: true})} className={styles.inputs}/>

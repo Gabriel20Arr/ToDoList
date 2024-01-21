@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
 
-    height: 280px;
+    height: 350px;
     width: 280px;
 
     border: 1px solid white;
@@ -39,6 +39,43 @@
     justify-content: center;
 
     margin-bottom: 15px;
+}
+
+/* image */
+.cIMG{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    max-width: 85%;
+
+    /* border: 1px solid; */
+
+    margin-bottom: 10px;
+}
+
+.image{
+    height: 60px;
+    width: 60px;
+
+    border: 2px white;
+    border-radius: 50%;
+}
+.image2{
+    height: 60px;
+    width: 60px;
+
+    border: 2px white;
+    border-radius: 50%;
+}
+
+.inputimg{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+    width: 58%;
+    
 }
 
 .inputs{
