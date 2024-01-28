@@ -54,19 +54,58 @@
     margin-bottom: 10px;
 }
 
+
+.CloadIMg{
+    display: flex;
+}
+
 .image{
     height: 60px;
     width: 60px;
 
-    border: 2px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
     border-radius: 50%;
+
+    position: relative;
 }
-.image2{
+
+.image0{
     height: 60px;
     width: 60px;
 
-    border: 2px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
     border-radius: 50%;
+}
+
+.loaders {
+    width: 30px;
+    height: 30px;
+    border: 5px solid #FFF;
+    border-bottom-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+
+    position: absolute;
+    top: 28%;
+    left: 16%;
+
+    z-index: 15;
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .inputimg{
@@ -75,7 +114,6 @@
     align-items: flex-end;
     
     width: 58%;
-    
 }
 
 .inputs{

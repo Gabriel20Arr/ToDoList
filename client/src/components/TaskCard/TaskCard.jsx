@@ -1,4 +1,5 @@
 import { useTasks } from "../../contexts/taskContext"
+import { useFav } from "../../contexts/FavContext"
 // import { useParams } from 'react-router-dom';
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -17,6 +18,7 @@ export const TaskCard = ({ task }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isPulsado, setIsPulsado] = useState(false);
   const { deleteTask, taskById } = useTasks()
+  const { createFav } = useFav()
   const [ value, setValue ] = useState(null)
   // const [alertShown, setAlertShown] = useState(false);
 
@@ -56,7 +58,33 @@ export const TaskCard = ({ task }) => {
       }
     };
 
+  const HandlerFav = async (favorite) => {
+    try {
+      const res = await createFav(favorite);
+    } catch (error) {
+      console.error("Error al enviar la solicitud de favorito:", error);
+    }
+  }
 
+  const handlerDelete = async (id) => {
+    try {
+      const result = await Swal.fire({
+        title: '',
+        text: 'Sure to delete the task?',
+        position: "top",
+        icon: 'warning',
+        confirmButtonColor: '#3498db',
+        showCancelButton: true
+      })
+
+      if(result.isConfirmed) {
+        const res = await deleteTask(id)
+      }
+      
+      } catch (error) {
+        console.error('Error:', error);
+    }
+  }
     
   return (
     <div>
@@ -69,7 +97,7 @@ export const TaskCard = ({ task }) => {
                 <img 
                     src={imgX}
                     className={style.btn} 
-                    onClick={()=> { deleteTask(task._id) }}
+                    onClick={() => { handlerDelete(task._id) }}
                 />
               </div>
             </div>
@@ -86,7 +114,14 @@ export const TaskCard = ({ task }) => {
                       className={style.bntDelUpd} 
                   >
                     Update
-                  </Link>
+                  </Link> 
+                    : ''
+                }
+                {
+                  isClicked ?
+                    <span className={style.bntDelUpd} onClick={() => {HandlerFav(task)}}>
+                      Favorite
+                    </span>
                     : ''
                 }
 
@@ -98,21 +133,22 @@ export const TaskCard = ({ task }) => {
               isClicked ?
               <div className={style.sw}>
                 <div className={style.sw2} onClick={handleStopWatchClick}>
-                  <StopWatch />
-                  {/* <input type="date" className={style.calendar} /> */}
-                    <div className={style.Ccalendar}>
-                        
-                        <button onClick={pulsado} className="bg-white font-bold rounded-xl p-1">Calendar</button>
-                        { 
-                          isPulsado ? 
-                            <Calendar className={style.calendar} onChange={setValue} value={value}/> 
-                          : (value && (
-                             <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                            ))  
-                        }
-                             {showAlertIfCurrentDate()}
 
-                    </div>
+                  <StopWatch />
+
+                  <div className={style.Ccalendar}>
+                      
+                      <button onClick={pulsado} className="bg-white font-bold rounded-xl p-1">Calendar</button>
+                      { 
+                        isPulsado ? 
+                          <Calendar className={style.calendar} onChange={setValue} value={value}/> 
+                        : (value && (
+                            <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                          ))  
+                      }
+                            {showAlertIfCurrentDate()}
+
+                  </div>
                       
                 </div>
               </div> : ''

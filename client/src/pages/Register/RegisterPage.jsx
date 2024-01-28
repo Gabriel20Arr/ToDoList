@@ -30,14 +30,15 @@ function RegisterPage() {
 
     // console.log('res', res.data)
     setImage(res.data.secure_url)
-
+    console.log(res.data.secure_url)
+    
     setLoading(false)
-  }
+    }
 
-  // Delete image
-  const DeleteImage = () => {
-    setImage('')
-  }
+    // Delete image
+    const DeleteImage = () => {
+      setImage('')
+    }
     
     useEffect(() => {
       if(isAuthenticated) {
@@ -46,6 +47,8 @@ function RegisterPage() {
     }, [isAuthenticated])
     
     const handlerSubmit = handleSubmit( async (values) => {
+      values.profile = image;
+      
       signup(values)
     })
     
@@ -67,9 +70,9 @@ function RegisterPage() {
             {/* <span>photo</span> */}
                   
             {loading ? (
-              <div className="flex p-2">
-                <img src={imageUser} alt="" className={styles.image2}/>
-                <h2>Loading...</h2>
+              <div className={styles.CloadIMg}>
+                  <span className={styles.loaders}></span>
+                  <img src={imageUser} alt="" className={styles.image0}/> 
               </div>
             ) : (
               <img src={image || imageUser} alt='' className={styles.image}/>
@@ -81,9 +84,10 @@ function RegisterPage() {
                 type="file" 
                 accept='image/*'
                 name='file'
-                // placeholder="select Image"
                 onChange={uploadImage}
+                // {...register("profile")}
               />
+              
               {/* <button className='bg-blue-800 text-white rounded-xl border hover:border-black' onClick={DeleteImage}>Delete</button> */}
           </div>
           
@@ -99,7 +103,7 @@ function RegisterPage() {
           }
 
 
-          <input type="password" placeholder="Password" {...register("password", {required: true})} className={styles.inputs}/>
+          <input type="text" placeholder="Password" {...register("password", {required: true})} className={styles.inputs}/>
           {
             errors.password && <span className={styles.errores}>❌ Password is requiered</span>
           }

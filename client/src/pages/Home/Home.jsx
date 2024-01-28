@@ -7,6 +7,7 @@ import style from "./Home.module.css"
 
 const date = new Date()
 export const Home = () => {
+  /* 
   const[date, setDate] = useState(new Date())
   
   useEffect(() => {
@@ -29,7 +30,7 @@ export const Home = () => {
 
   // Formatea la fecha y hora como una cadena
   const fechaHoraFormateada = `${dia}/${mes}/${ano} ${hora}:${minutos}:${segundos}`;
-  
+  */
   return (
     <div className={style.container}>
     
@@ -41,9 +42,9 @@ export const Home = () => {
         <TaskPage />
       </div>
 
-      <div className={style.Stopwatch}>
+      {/* <div className={style.Stopwatch}>
         <span>{fechaHoraFormateada}</span>
-      </div>
+      </div> */}
 
     </div>
   )

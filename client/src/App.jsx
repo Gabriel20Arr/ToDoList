@@ -9,6 +9,7 @@ import { ProfilePage } from "./pages/Profile/ProfilePage"
 import { ProtectedRoutes } from './ProtectedRoutes'
 import { ShowTask } from './components/ShowTask/ShowTask'
 import StopWatch from './components/StopWatch/StopWatch'
+import { Favorite } from './pages/Favorite/Favorite'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/Show-task/:id' element={<ShowTask />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/stop-watch' element={<StopWatch />} />
+          <Route path='/favorite' element={<Favorite />} />
         </Route>
         
       </Routes>
