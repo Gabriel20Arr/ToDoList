@@ -14,13 +14,22 @@ import 'sweetalert2/src/sweetalert2.scss';
 import 'react-calendar/dist/Calendar.css';
 import style from "./TaskCard.module.css"
 
-export const TaskCard = ({ task }) => {
+import work from "/imgIconos/work-tools.png"
+import study from "/imgIconos/study.png"
+import leisure from "/imgIconos/masaje.png"
+import temporary from "/imgIconos/reloj-de-arena.png"
+import business from "/imgIconos/business-people.png"
+
+export const TaskCard = ({ task}) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isPulsado, setIsPulsado] = useState(false);
   const { deleteTask, taskById } = useTasks()
   const { createFav } = useFav()
   const [ value, setValue ] = useState(null)
   // const [alertShown, setAlertShown] = useState(false);
+
+  // console.log("1",selectedCategory);
+  // console.log("2",categoryNumber);
 
     const ShowCard = ()  => {
        setIsClicked(!isClicked);
@@ -85,10 +94,38 @@ export const TaskCard = ({ task }) => {
         console.error('Error:', error);
     }
   }
-    
+
+
+
+const iconosImg = { 
+  work: <img src={work} style={{height:"13px", width:"30px"}}/>,
+  study: <img src={study} style={{height:"30px", width:"30px"}}/>,
+  leisure: <img src={leisure} style={{height:"30px", width:"30px"}}/>,
+  temporary: <img src={temporary} style={{height:"30px", width:"30px"}}/>,
+  business: <img src={business} style={{height:"30px", width:"30px"}}/>,
+};
+
+const obtenerIcono = (categoria) => {
+  // Acceder al valor correspondiente a la categoría proporcionada
+  const icono = iconosImg[categoria];
+
+  // Si la categoría existe en el objeto, devuelve el icono, de lo contrario, devuelve un valor por defecto o null
+  return icono || <img src="/imgIconos/valor-por-defecto.png" alt="Default Icon" />;
+};
+
+// Ejemplo de uso
+const categoriaSeleccionada = 'study';
+const iconoObtenido = obtenerIcono(categoriaSeleccionada);
+
+// console.log("Icono obtenido:", iconoObtenido);
+
   return (
     <div>
         <div className={`${style.task} ${isClicked ? style.clicked : ''}`} onClick={() => ShowCard(task._id)}>
+        <div>
+          {/* <span>{task.category}</span> */}
+          {Object.keys(iconosImg).includes(task.category) && obtenerIcono(task.category)}
+        </div>
             <div className={style.Cheader}>
               <div className={style.Ctitle}>
                   <h2 className={style.title}> {task.title} </h2>

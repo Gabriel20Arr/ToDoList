@@ -29,6 +29,20 @@
     text-align: center;
 }
 
+.category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: aliceblue;
+    
+    background-color: white;
+    border-radius: 50%;
+
+    height: 40px;
+    width: 40px;
+}
+
 .title{
     font-weight: bold;
     font-size: 15px;
@@ -63,6 +77,12 @@
     height: 30px;
 
     padding-left: 3px;
+
+    margin-bottom: 5px;
+
+    background-color: white;
+
+    width: 100%;
 }
 
 .inputs2{

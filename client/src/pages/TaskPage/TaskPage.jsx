@@ -21,7 +21,7 @@ export const TaskPage = () => {
       <div className={style.container}>         
         { 
           task.map((task) => (
-            <TaskCard task={task} key={task._id} />
+            <TaskCard task={task} key={task._id} className={style.Card}/>
           ))
         }
       </div>
