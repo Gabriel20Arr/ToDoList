@@ -10,31 +10,39 @@ import { ProtectedRoutes } from './ProtectedRoutes'
 import { ShowTask } from './components/ShowTask/ShowTask'
 import StopWatch from './components/StopWatch/StopWatch'
 import { Favorite } from './pages/Favorite/Favorite'
+import { Navbar } from './components/Navbar/Navbar'
 
 
-function App() {
+function App() { 
 
   return (
-    <>
-      <Routes>
-        {/* rutas publicas */}
-        <Route path='/' element={<Home />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
+    <div className="container">
+    
+      <div className="nav">
+        <Navbar />
+      </div>
+      
+      <div className="task">
+        <Routes>
+          {/* rutas publicas */}
+          <Route path='/' element={<Home className="home"/>} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
 
-        {/* rutas privadas */}
-        <Route element={<ProtectedRoutes />}>
-          <Route path='/tasks' element={<TaskPage />} />
-          <Route path='/add-task' element={<TaskFormPage />} />
-          <Route path='/task/:id' element={<TaskFormPage />} />
-          <Route path='/Show-task/:id' element={<ShowTask />} />
-          <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/stop-watch' element={<StopWatch />} />
-          <Route path='/favorite' element={<Favorite />} />
-        </Route>
-        
-      </Routes>
-    </>
+          {/* rutas privadas */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path='/tasks' element={<TaskPage />} />
+            <Route path='/add-task' element={<TaskFormPage />} />
+            <Route path='/task/:id' element={<TaskFormPage />} />
+            <Route path='/Show-task/:id' element={<ShowTask />} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/stop-watch' element={<StopWatch />} />
+            <Route path='/favorite' element={<Favorite />} />
+          </Route>
+        </Routes>
+      </div>
+
+    </div>
   )
 }
 

@@ -1,21 +1,32 @@
-import { createContext, useContext, useState } from "react"
-import { createTaskRequest, getTasksrequest, deleteTasksrequest, getTaskrequest, updateTaskRequest } from "../api/tasks"
+import { createContext, useContext, useState, useEffect } from "react"
+import { 
+    createTaskRequest, 
+    getTasksrequest, 
+    deleteTasksrequest, 
+    getTaskrequest, 
+    updateTaskRequest,
+    geCalendarrequest,
+    creatCalendarRequest,
+    updatCalendarRequest,
+    deleteCalendarrequest 
+} from "../api/tasks"
 
 const TaskContext = createContext();
 
 export const useTasks = () => {
     const context = useContext(TaskContext)
-
+    
     if(!context) {
         throw new Error('useTasks must be within a Taskprovider')
     }
-
+    
     return context;
 }
 
 export function TaskProvider({ children }) {
     const [ task, setTask ] = useState([])
-
+    const [errores, setErrores] = useState([])
+    
     const AllTask = async () => {
         try {
             const res = await getTasksrequest()
@@ -30,16 +41,23 @@ export function TaskProvider({ children }) {
         // console.log(res.data);
         return res.data
     } 
-    
 
     const createTasks =  async ( task ) => {
-        const res = await createTaskRequest(task);
-        // console.log(res);    
+        try {
+            const res = await createTaskRequest(task);
+        } catch (error) {
+            console.log(error);    
+            setErrores(error.response.data)
+        }
     }
 
     const UpdateTask = async (id, task) => {
-        const res = await updateTaskRequest(id, task)
-        // console.log(res);
+        try {
+            const res = await updateTaskRequest(id, task)
+        } catch (error) {
+            setErrores(error.response.data)
+            console.log(error.response.data);
+        }
     }
 
     const deleteTask = async (id) => {
@@ -51,10 +69,56 @@ export function TaskProvider({ children }) {
             console.log(error);
         }
     }
+
+    useEffect( () => {
+        if(errores.length > 0 ) {
+            const timer = setTimeout(() => {
+                setErrores([])
+            }, 7000)
+            // una vez que no se utiliza limpiamos el setTimeout
+            return () => clearTimeout(timer)
+        }
+    }, [errores] )
+
+
+    // CALENDAR
+    const calendarById = async (id) => {
+        const res = await geCalendarrequest(id)
+        console.log(res.data);
+        return res.data
+    } 
+
+    const createCalendar =  async ( calendar ) => {
+        const res = await creatCalendarRequest(calendar);
+        // console.log(res);    
+    }
+
+    const UpdatCalendar = async (id, calendar) => {
+        const res = await updatCalendarRequest(id, calendar)
+        // console.log(res);
+    }
+
+    const deletCalendar = async (id) => {
+        try {
+            const res = await deleteCalendarrequest(id)
+            if(res.status === 200) setTask(task.filter(calendar => calendar._id !== id))
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
     return(
         <TaskContext.Provider 
-            value={{ task, createTasks, AllTask, deleteTask, taskById, UpdateTask }}
+            value={{ 
+                task,
+                createTasks, 
+                AllTask, 
+                deleteTask, 
+                taskById, 
+                UpdateTask,
+                errores
+            }}
         >
             {children}
         </TaskContext.Provider>

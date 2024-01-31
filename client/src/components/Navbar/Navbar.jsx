@@ -37,6 +37,10 @@ export const Navbar = () => {
             </div>
             
             <div className={style.Clis}>
+                <Link to={'/'}>
+                    <li className={style.lis}>🏠 Home</li>
+                </Link>
+
                 <Link to={'/add-task'}>
                     <li className={style.lis}>➕ Add task</li>
                 </Link>
@@ -46,7 +50,7 @@ export const Navbar = () => {
                 </Link> 
 
                 <Link to={'/add-task'}>
-                    <li className={style.lis}>📬 contact</li>
+                    <li className={style.lis}>🗨️ Help</li>
                 </Link>
             </div>
 
@@ -54,8 +58,8 @@ export const Navbar = () => {
                 {
                     (user  && isAuthenticated)
                         ?
-                    (<Link to={'/login'} className={style.lis}>
-                        <li  onClick={Logout}>🚫 Logout</li>
+                    (<Link to={'/login'} >
+                        <li className={style.lis} onClick={Logout}>🚫 Logout</li>
                     </Link>) 
                         :
                     ''

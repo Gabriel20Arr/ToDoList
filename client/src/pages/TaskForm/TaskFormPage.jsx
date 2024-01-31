@@ -10,18 +10,14 @@ import study from "/imgIconos/study.png"
 import leisure from "/imgIconos/masaje.png"
 import temporary from "/imgIconos/reloj-de-arena.png"
 import business from "/imgIconos/business-people.png"
+import Default from "/imgIconos/reloj-de-pared.png"
 
 export const TaskFormPage = () => {
-  const { register, handleSubmit, setValue } = useForm()
-  const {  createTasks, taskById, UpdateTask } = useTasks()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+  const {  createTasks, taskById, UpdateTask, errores } = useTasks()
   const [selectedCategory, setSelectedCategory] = useState(''); // Estado local para almacenar la categoría seleccionada
   const navigate = useNavigate()
   const params = useParams()
-  
-
-  const goBack = () => {
-    window.history.back();
-  }
 
   useEffect(() => {
     async function loadTask() {
@@ -29,6 +25,7 @@ export const TaskFormPage = () => {
         const task = await taskById(params.id)
         setValue('title', task.title)
         setValue("description", task.description)
+        setValue("category", task.category)
       }
     } 
 
@@ -42,42 +39,55 @@ export const TaskFormPage = () => {
     } else {
       await createTasks(data);
     }
-    
-    navigate('/')
+
+    if(errores.length === 0) {
+      navigate('/');
+    }
+
   });
 
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
-    const handleCategoryChange = (event) => {
-      setSelectedCategory(event.target.value);
-    };
-
-    const getCategoryNumber = () => {
-      switch (selectedCategory) {
-        case 'work':
-          return <img src={work} alt="Work Icon" style={{ height: "30px" }} />;
-        case 'study':
-          return <img src={study} alt="Work Icon" style={{ height: "30px" }} />;
-        case 'leisure':
-          return <img src={leisure} alt="Work Icon" style={{ height: "30px" }} />;
-        case 'temporary':
-          return <img src={temporary} alt="Work Icon" style={{ height: "30px" }} />;
-        case 'bussines':
-          return <img src={business} alt="Work Icon" style={{ height: "30px" }} />;
-        default:
-          return '';
-      }
-    };
+  const getCategoryNumber = () => {
+    switch (selectedCategory) {
+      case 'work':
+        return <img src={work} alt="Work Icon" className={style.imgIconos} />;
+      case 'study':
+        return <img src={study} alt="Work Icon" className={style.imgIconos1} />;
+      case 'leisure':
+        return <img src={leisure} alt="Work Icon" className={style.imgIconos2} />;
+      case 'temporary':
+        return <img src={temporary} alt="Work Icon" className={style.imgIconos3} />;
+      case 'bussines':
+        return <img src={business} alt="Work Icon" className={style.imgIconos4} />;
+      default:
+        return <img src={Default} alt="Work Icon" className={style.imgIconos5} />;
+    }
+  };
+  // const array = Object.values(errors);
+  // console.log(array);
+  console.log("errores", errores);
 
   return (
     <div className={style.conteiner}>
-      <div className={style.conteinerBtn}>
-        <button onClick={goBack} className={style.btnBack}>Go back</button>
-      </div>
+
     
       <form className={style.formC} onSubmit={onSubmit}>
+        <div className={style.ContentCategory}>
+            {getCategoryNumber()}
+        </div>
 
-        <div className={style.category}>
-          {getCategoryNumber()}
+        <div className={style.ContentErerrors}>
+          { errores[0] ? <span className={style.errores2}>
+            🔒 {errores[0]}
+            </span> : ''
+          }
+          { errors.category ?
+            <span className={style.errores2}>🔒 Category {errors.category.type}</span>
+            : ''
+          }
         </div>
 
         <h1 className={style.title}> New Task </h1>
@@ -88,11 +98,15 @@ export const TaskFormPage = () => {
           autoFocus
           className={style.inputs}
         />
+       {/* { errors[0] ? <span className={style.errores2}>
+          🔒 {errors[0]}
+        </span> : ''
+        } */}
 
         <section id="category">
           <select 
             className={style.inputs} 
-            {...register('category')}
+            {...register('category', {required: true})}
             value={selectedCategory} 
             onChange={handleCategoryChange}
           >

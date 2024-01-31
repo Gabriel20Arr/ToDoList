@@ -14,7 +14,7 @@ export const TaskPage = () => {
   return (
     <div className={style.container0}>
       {task && task.length > 0 ? (
-        <h1 className={style.t}>🏛️ Tasks</h1>
+        ''
       ) : (
         <h1 className={style.noTask}>There are no tasks</h1>
       )}

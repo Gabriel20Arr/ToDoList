@@ -1,36 +1,36 @@
 .container0 {
-    min-width: 100px;
+    max-height: 100vh;
+    min-width: 160px;
     border: 1px solid white;
 
-    padding: 0 5px;
-
-    background-color: #acd1ff;
+    background-color: white;
 }
 
 .container {
     display: flex;
     flex-direction: column;
 
-    /* justify-content: ; */
-    /* text-align: center; */
+    justify-content: space-between;
 
     color: black;
     font-weight: bold;
 
-    width: 130px;
-    /* height: 100%; */
+    width: 160px;
+    height: 100%;
 
-    /* background-color: aqua; */
+    background-color: white;
 }
 
 .profile{
-    /* background-color: red; */
+    background-color: rgb(244, 244, 244);
 
     display: flex;
     align-content: center;
 
-    max-width: 150px;
-    height: 170px;
+    max-width: 160px;
+    max-height: 100px;
+
+    border-bottom-left-radius: 20px;
 }
 
 .ContentProfile{
@@ -43,8 +43,9 @@
     justify-content: center;
     align-items: center;
 
-    /* background-color: yellow; */
     border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom-left-radius: 20px;
 }
 
 .image{
@@ -75,34 +76,55 @@
 }
 
 .Clis{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    
     /* background-color: greenyellow; */
 
-    height: 200px;
+    max-width: 200px;
 }
 
 .lis {
-    /* border: 1px solid white; */
-    height: 30px;
-    width: 100%;
+    background-color: #F1F1F1;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    
+    height: 40px;
+    width: 140px;
 
     margin-bottom: 5px;
 
-    font-family:Arial, Helvetica, sans-serif;
-    
     display: flex;
-    text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
+    /* text-align: center; */
+
+    padding-left: 22%;
+    padding-top: 5%;
+    
+    margin: 10px 0; 
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.lis:hover{
+    -webkit-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+    box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+
+    transform: scale(1.08);
+
+    border: 1px solid black;
 }
 
 .loguot{
-    height: 250px;
-    width: 100%;
-
-    padding: 20px 0;
-
     display: flex;
+    flex-direction: column;
+
+    align-items: center;
     justify-content: center;
-    align-items: self-end;
     
-    /* background-color: red; */
+    max-width: 200px;
 }

@@ -1,54 +1,11 @@
 .container{
-    /* background-color: red; */
+    background-color: rgb(244, 244, 244);
     min-height: 100vh;
-    width: 100%;
+    min-width: 100%;
 
-    display: flex;
-}
+    /* border: 1px solid rgb(244, 244, 244); */
 
-.nav{
-    display: flex;
-    
-    height: 100vh;
-    max-width: 30%;
+    /* background-color: red; */
 
-    border-right: 1px solid black;
-
-    /* background-color: blue; */
-}
-
-.task{
-    /* background-color: green; */
-    max-height: 100vh;
-    width: 100%;
-
-    /* overflow-y: scroll; */
-    overflow-y: auto;
-}
-
-.Stopwatch{
-    border: 1px solid black;
-    border-radius: 5px;
-
-    background-color: rgb(15, 128, 227);
-    color: white;
-
-    display: block;
-    
-    position: absolute;
-
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    height: fit-content;
-    width: fit-content;
-
-    padding: 3px;
-
-    margin-right: 35px;
-    margin-bottom: 20px;
+    padding-top: 30px;
 }
