@@ -14,7 +14,7 @@ router.post("/loguot", logout)
 
 router.get('/verify', verifyToken)
 
-router.get("/profile", authRequired, profile)
+router.get("/profile/:id", authRequired, profile)
 
 router.put("/reset-password/:id", authRequired, putPassword)
 

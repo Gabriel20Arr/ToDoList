@@ -7,7 +7,7 @@ import { TOKEN_SECRET } from "../config.js";
 
 
 export const registers = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, profile, email, password } = req.body;
 
     try {
         const foundUser = await User.findOne({ email });
@@ -18,6 +18,7 @@ export const registers = async (req, res) => {
         
         const newUser = new User({
             username,
+            profile,
             email,
             password: passBcrypt
         })
@@ -30,6 +31,7 @@ export const registers = async (req, res) => {
     res.json({
         id: sevedUser._id,
         username: sevedUser.username,
+        profile: sevedUser.profile,
         email: sevedUser.email,
         createdAt: sevedUser.createdAt,
         updatedAt: sevedUser.updatedAt
@@ -78,14 +80,17 @@ export const logout = (req, res) => {
 export const profile = async (req, res) => {
     const userFound = await User.findById(req.user.id)
     if(!userFound) return res.status(400).json({message: "User not found"})
-
+    
+    // console.log(userFound);
     return res.json({
         id: userFound._id,
+        profile: userFound.profile,
         username: userFound.username,
         email: userFound.email,
         createdAt: userFound.createdAt,
         updatedAt: userFound.updatedAt
     })
+
 }
 
 

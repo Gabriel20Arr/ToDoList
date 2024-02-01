@@ -15,7 +15,12 @@ const useSchema = new mongoose.Schema({
     password: {
         type: String,
         require: true
+    },
+    profile: {
+        type: String,
+        require: false
     }
+
 }, {
     timestamps: true
 })

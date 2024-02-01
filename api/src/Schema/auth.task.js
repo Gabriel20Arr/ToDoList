@@ -11,5 +11,8 @@ export const taskSchema = z.object({
         }).min(1, {
             message: "description is required"
         }),
+        category: z.string({
+            required_error: "Category is required"
+        }),
         date: z.string().datetime().optional()
     });

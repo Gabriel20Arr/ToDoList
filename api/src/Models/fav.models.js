@@ -13,10 +13,6 @@ const newSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    category: {
-        type: String,
-        require: true
-    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -26,4 +22,4 @@ const newSchema = new Schema({
     timestamps: true
 })
 
-export default mongoose.model("Task", newSchema)
+export default mongoose.model("Favorite", newSchema)

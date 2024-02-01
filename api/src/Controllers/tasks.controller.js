@@ -10,18 +10,23 @@ export const getTasks = async (req, res) => {
 }
 
 export const postTask = async ( req, res ) => {
-    const { id, title, description, date } = req.body;
+    const { id, title, description, category, date } = req.body;
 
     const newTask = new Task({
         title,
         description,
+        category,
         date,
         user: req.user.id
     })
 
-    const taskSave =  await newTask.save()
-
-    res.json(taskSave)
+    try {
+        const taskSave = await newTask.save();
+        res.json(taskSave);
+    } catch (error) {
+        console.error('Error al guardar la tarea:', error);
+        res.status(500).json({ error: 'Error al guardar la tarea' });
+    }
 }
 
 export const getTask = async (req, res) => {
@@ -43,9 +48,9 @@ export const deleteTask = async (req, res) => {
 }
 
 export const putTask = async (req, res) => {
-    const _id = req.params.id;
+    const id = req.params.id;
 
-    const updateTask = await Task.findByIdAndUpdate(_id, req.body, {
+    const updateTask = await Task.findByIdAndUpdate(id, req.body, {
         new: true
     })
 
