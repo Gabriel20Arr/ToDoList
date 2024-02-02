@@ -24,13 +24,13 @@ export const Navbar = () => {
             <div className={style.profile}>
                 {   
                 !(user  && isAuthenticated) ?
-                    <Link to={'/login'}>
-                        <li className={style.lis0}>📍 Login</li>
+                    <Link to={'/login'} className={style.lis0Login}>
+                        <li className={style.liLogin}>🔗 Login</li>
                     </Link> :
                     <div className={style.ContentProfile}>
                         <img src={dataP.profile} alt=""  className={style.image}/>
                         <Link to={'/profile'} className={style.lis0}>
-                            <li className={style.lis00}>{dataP.username}</li>
+                            <li className={style.lis00}>{dataP.username} 🔗</li>
                         </Link>
                     </div>
                 }

@@ -8,7 +8,6 @@ import imageUser from "/imgTests/silueta-de-persona.jpg"
 import styles from "./RegisterPage.module.css"
 
 
-
 function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { signup, isAuthenticated, errores } = useAuth()
@@ -30,7 +29,7 @@ function RegisterPage() {
 
     // console.log('res', res.data)
     setImage(res.data.secure_url)
-    console.log(res.data.secure_url)
+    // console.log(res.data)
     
     setLoading(false)
     }
@@ -52,6 +51,8 @@ function RegisterPage() {
       signup(values)
     })
     
+    // console.log("errores", errores);
+    // console.log("errors", errors);
     
     return (
       <div className={styles.container}>
@@ -79,17 +80,25 @@ function RegisterPage() {
             )}
 
 
-            <input
-                className={styles.inputimg} 
-                type="file" 
-                accept='image/*'
-                name='file'
-                onChange={uploadImage}
-                // {...register("profile")}
+            <div className={styles.contenedorID}>
+              <input
+                  className={styles.inputimg} 
+                  type="file" 
+                  accept='image/*'
+                  name='file'
+                  onChange={uploadImage}
+                  // {...register("profile", {required: true})}
               />
-              
-              {/* <button className='bg-blue-800 text-white rounded-xl border hover:border-black' onClick={DeleteImage}>Delete</button> */}
+                
+              <button className={styles.btndeleteimg} onClick={DeleteImage}>Delete</button>
+            </div>
+          
           </div>
+            
+          {console.log("img", image)}
+          {     
+            !image&& <span className={styles.errores}>❌ Photo is requiered</span>
+          }
           
           <input type= "username" placeholder="Username" {...register("username", {required: true})} className={styles.inputs}/>
           {

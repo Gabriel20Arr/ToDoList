@@ -4,53 +4,91 @@
     justify-content: center;
     align-items: center;
     
-    width: 120px;
+    width: 100px;
     height: fit-content;
 
     border: 1px solid black;
     border-radius: 10px;
 
-    background-color: aliceblue;
+    /* background-color: red; */
 
-    /* padding: 0 5px; */
+    /* padding: 5px; */
 }
+
+.containerOne{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 100%;
+    /* background-color: blue; */
+
+    margin-bottom: 5px;
+}
+
+.time{
+    /* background-color: rgb(84, 152, 255); */
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 5px 0 8px 0;
+    font-size: 20px;
+
+    width: 100%;
+    text-align: center;
+    margin-right: 3px;
+}
+
+.btnR{
+    /* border: 1px solid black; */
+    border-radius: 5px;
+
+    min-width: 40px;
+    height: 20px;
+    
+    padding: 0 5px;
+    
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #dcdcdc;
+    transition: transform 0.5s ease-in-out;
+
+    margin-right: 5px;
+}
+
+.btnR:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 
 .containerBtn{
     width: 100%;
     
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     /* align-items: center; */
 
     margin-bottom: 5px;
 }
 
-.title{
-    font-size: 15px;
-    font-weight: bold;
-
-    color: rgb(84, 152, 255);
-}
-
-.time{
-    /* background-color: rgb(84, 152, 255); */
-    font-size: 20px;
-
-    width: 100%;
-    text-align: center;
-    /* margin: 3px; */
-}
-
 .btn{
-    border: 1px solid black;
-    border-radius: 10px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
 
+    width: 40px;
+    height: 20px;
+    
     padding: 0 5px;
     
     text-align: center;
     font-size: 10px;
-    background-color: rgb(84, 152, 255);
+    font-weight: bold;
+    background-color: #dcdcdc;
     transition: transform 0.5s ease-in-out;
+
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .btn:hover{

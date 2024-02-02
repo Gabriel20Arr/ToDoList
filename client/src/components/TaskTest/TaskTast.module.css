@@ -1,3 +1,17 @@
+/* css task test */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado a align-items: flex-start */
+    flex-wrap: wrap;
+    gap: 25px;
+
+    padding: 20px;
+    padding-bottom: 30px;
+
+    /* background-color: red; */
+}
+
 .task{
     display: flex;
     flex-direction: column;
@@ -177,7 +191,7 @@
     min-height: fit-content;
 
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
     text-align: start;
     color: black;
@@ -196,7 +210,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     
-    font-size: 12px;
+    font-size: 11px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     color: black;
@@ -260,8 +274,6 @@
     color: black;
     
     padding: 3px;
-
-    margin: 0 0 8px 10px ;
 
     /* overflow-wrap: break-word;
     white-space: pre-wrap; */

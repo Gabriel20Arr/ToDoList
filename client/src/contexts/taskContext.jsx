@@ -46,7 +46,7 @@ export function TaskProvider({ children }) {
         try {
             const res = await createTaskRequest(task);
         } catch (error) {
-            console.log(error);    
+            // console.log(error);    
             setErrores(error.response.data)
         }
     }
@@ -56,7 +56,7 @@ export function TaskProvider({ children }) {
             const res = await updateTaskRequest(id, task)
         } catch (error) {
             setErrores(error.response.data)
-            console.log(error.response.data);
+            // console.log(error.response.data);
         }
     }
 

@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 import RegisterPage from './pages/Register/RegisterPage'
 import LoginPage from './pages/Login/LoginPage'
 import { Home } from './pages/Home/Home'
@@ -14,14 +14,15 @@ import { Navbar } from './components/Navbar/Navbar'
 
 
 function App() { 
-
+  const Location = useLocation()
   return (
     <div className="container">
-    
-      <div className="nav">
-        <Navbar />
-      </div>
-      
+      { Location.pathname !== "/register" && Location.pathname !== "/login" ?  
+        <div className="nav">
+          <Navbar />
+        </div>
+        : ''
+      }
       <div className="task">
         <Routes>
           {/* rutas publicas */}

@@ -19,7 +19,7 @@ import leisure from "/imgIconos/masaje.png"
 import temporary from "/imgIconos/reloj-de-arena.png"
 import business from "/imgIconos/business-people.png"
 
-export const TaskCard = ({ task}) => {
+export const TaskCard = ({ task }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isPulsado, setIsPulsado] = useState(false);
   const { deleteTask } = useTasks()
@@ -32,41 +32,51 @@ export const TaskCard = ({ task}) => {
   });
   // const [alertShown, setAlertShown] = useState(false);
 
-    const ShowCard = ()  => {
-       setIsClicked(!isClicked);
+  const ShowCard = ()  => {
+      setIsClicked(!isClicked);
+  }
+
+  const pulsado = ()  => {
+    setIsPulsado(!isPulsado)
+    // console.log(isPulsado);
+  }
+
+  const handleStopWatchClick = (event) => {
+  // Evitar que el clic en el cronómetro propague al contenedor TaskCard
+  event.stopPropagation();
+  };
+
+    // Guarda el valor en el almacenamiento local cuando cambia
+  useEffect(() => {
+    if (value) {
+      localStorage.setItem(localStorageKey, value.toISOString());
     }
+  }, [value, localStorageKey]);
 
-    const pulsado = ()  => {
-      setIsPulsado(!isPulsado)
-      // console.log(isPulsado);
-    }
-  
-    const handleStopWatchClick = (event) => {
-    // Evitar que el clic en el cronómetro propague al contenedor TaskCard
-    event.stopPropagation();
-    };
+  // Agregar esta función para mostrar una alerta cuando el valor sea igual a la fecha actual
+  const showAlertIfCurrentDate = () => {
+    const currentDate = new Date();
+    const taskCompletionDate = value;
 
-    // Agregar esta función para mostrar una alerta cuando el valor sea igual a la fecha actual
-    const showAlertIfCurrentDate = () => {
-      const currentDate = new Date();
-      const taskCompletionDate = value;
+    if (
+      taskCompletionDate &&
+      taskCompletionDate.getDate() === currentDate.getDate() &&
+      taskCompletionDate.getMonth() === currentDate.getMonth() &&
+      taskCompletionDate.getFullYear() === currentDate.getFullYear()
+    ) {
+      Swal.fire({
+        title: '',
+        text: '¡Time from task fished!',
+        position: "top",
+        icon: 'info',
+        confirmButtonColor: '#3498db',
+      }).then(() => {
+        localStorage.removeItem(localStorageKey)
 
-      if (
-        taskCompletionDate &&
-        taskCompletionDate.getDate() === currentDate.getDate() &&
-        taskCompletionDate.getMonth() === currentDate.getMonth() &&
-        taskCompletionDate.getFullYear() === currentDate.getFullYear()
-      ) {
-        Swal.fire({
-          title: '',
-          text: '¡Time from task fished!',
-          position: "top",
-          icon: 'info',
-          confirmButtonColor: '#3498db',
-        })
         setValue(null)
-      }
-    };
+      })
+    }
+  };
 
   const HandlerFav = async (favorite) => {
     try {
@@ -114,14 +124,6 @@ export const TaskCard = ({ task}) => {
     return icono || <img src="" alt="Default Icon" />;
   };
 
-  // Guarda el valor en el almacenamiento local cuando cambia
-  useEffect(() => {
-    if (value) {
-      localStorage.setItem(localStorageKey, value.toISOString());
-    }
-  }, [value, localStorageKey]);
-
-
   return (
     <div>
         <div className={`${style.task} ${isClicked ? style.clicked : ''}`} onClick={() => ShowCard(task._id)}>
@@ -140,7 +142,7 @@ export const TaskCard = ({ task}) => {
               <div className={style.Cbtns}>
                 <img 
                     src={imgX}
-                    className={style.btn} 
+                    className={style.btnD} 
                     onClick={() => { handlerDelete(task._id) }}
                 />
               </div>
@@ -161,6 +163,7 @@ export const TaskCard = ({ task}) => {
                   </Link> 
                     : ''
                 }
+
                 {
                   isClicked ?
                     <span className={style.bntDelUpd} onClick={() => {HandlerFav(task)}}>
@@ -182,17 +185,26 @@ export const TaskCard = ({ task}) => {
 
                   <div className={style.Ccalendar}>
                       
-                      <button onClick={pulsado} className="bg-white font-bold border border-black rounded-xl p-1">Calendar</button>
-                      { 
-                        isPulsado ? 
-                          <Calendar className={style.calendar} onChange={setValue} value={value}/> 
-                          
-                        : (value && (
-                            <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                          ))  
-                      }
+                     <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
+                    { 
+                      isPulsado ? 
+                        <Calendar 
+                          className={style.calendar} 
+                          onChange={setValue} 
+                          value={value} 
+                          tileClassName={({ date, view }) => {
+                            // Verifica si la fecha actual coincide con el valor y aplica la clase de estilo
+                            return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
+                          }}
+                        /> 
+                      : (value && (
+                          <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                        ))  
+                    }
                             {showAlertIfCurrentDate()}
+
                   </div>
+                  {console.log({value})}
                       
                 </div>
               </div> : ''

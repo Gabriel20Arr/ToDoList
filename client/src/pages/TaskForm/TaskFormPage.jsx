@@ -40,10 +40,7 @@ export const TaskFormPage = () => {
       await createTasks(data);
     }
 
-    if(errores.length === 0) {
       navigate('/');
-    }
-
   });
 
   const handleCategoryChange = (event) => {
@@ -66,9 +63,6 @@ export const TaskFormPage = () => {
         return <img src={Default} alt="Work Icon" className={style.imgIconos5} />;
     }
   };
-  // const array = Object.values(errors);
-  // console.log(array);
-  console.log("errores", errores);
 
   return (
     <div className={style.conteiner}>
@@ -84,24 +78,20 @@ export const TaskFormPage = () => {
             🔒 {errores[0]}
             </span> : ''
           }
-          { errors.category ?
-            <span className={style.errores2}>🔒 Category {errors.category.type}</span>
-            : ''
-          }
         </div>
 
         <h1 className={style.title}> New Task </h1>
         <input 
           type="text"
           placeholder="Title"
-          {...register('title')} 
+          {...register('title', {required: true})} 
           autoFocus
           className={style.inputs}
         />
-       {/* { errors[0] ? <span className={style.errores2}>
-          🔒 {errors[0]}
-        </span> : ''
-        } */}
+          { errors.title ?
+            <span className={style.errores2}>🔒 Title {errors.title.type}</span>
+            : ''
+          }
 
         <section id="category">
           <select 
@@ -117,14 +107,23 @@ export const TaskFormPage = () => {
             <option value="temporary">Temporary</option>
           </select>
         </section>
+
+          { errors.category ?
+            <span className={style.errores2}>🔒 Category {errors.category.type}</span>
+            : ''
+          }
         
         <textarea 
           placeholder="Description"
-          {...register('description')}
+          {...register('description', {required: true})}
           className={style.inputs2}
         ></textarea>
+          { errors.description ?
+            <span className={style.errores2}>🔒 Description {errors.description.type}</span>
+            : ''
+          }
 
-        <button className={style.btn}> Save </button>
+          <button className={style.btn} > Save </button>
       </form>
 
     </div>
