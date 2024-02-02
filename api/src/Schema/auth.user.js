@@ -17,6 +17,9 @@ export const registerSchema = z.object({
         message: "Password must be at least 6 characters"
     }).max(15, {
         message: "The password has a maximum of 15 characters"
+    }),
+    profile: z.string({
+        required_error: "Profile is required"
     })
 }) 
 

@@ -18,7 +18,7 @@ const useSchema = new mongoose.Schema({
     },
     profile: {
         type: String,
-        require: false
+        require: true
     }
 
 }, {
