@@ -1,25 +1,28 @@
 .container0{
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
     
     height: 100vh;
     width: 100%;
     
-    padding: 0 100px;    
+    /* padding: 0 100px;     */
+    background-color: #f4f4f4;
 }
 
 .t{
-    background-color: red;
-    /* width: 100%; */
+    background-color: white;
+    border-radius: 10px;
+
     font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bolder;
     text-align: start;
     justify-content: center;
 
-    padding: 0 20px;
+    padding: 0 25px;
+    margin-bottom: 8px;
 }
 
 .container{
@@ -27,40 +30,30 @@
     align-items: center;
     justify-content: space-between;
 
+    border-radius: 20px;
+
     margin-top: 5px;
 
-    width: 100%;
+    max-width: 500px;
     height: fit-content;
 
-    /* background-image: url(/imgTests/Universo.jpg); */
-    background-position: center;
-    background-size: cover;
-
-    /* background-color: red; */
+    /* border: 1px double black; */
 }
 
-.container1{
+.containerImg{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     
-    border: 1px solid black;
-    border-right: none;
-    
-    width: 50%;
+    max-width: 50%;
     min-height: 350px;
-    
-    padding: 20px;
-    
-    backdrop-filter: blur(1px);
+
     /* background-color: green; */
 }
 
 .image{
-    width: 100%;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: 100%;
     
-    border-radius: 25px;
+    border-radius: 25px 0 0 25px;
 }
 
 .container2{
@@ -69,19 +62,59 @@
     align-items: self-start;
 
     color: black;
-    border: 1px solid black;
-    border-left: none;
+    border-radius: 0 25px 25px 0;
     
     width: 50%;
     min-height: 350px;
 
-    padding: 20px;
-    backdrop-filter: blur(1px);
+    padding: 55px 15px;
+
+    background-color: white;
+
+    position: relative;
 }
 
+.edit{
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}
+
+.imgEdit{
+    height: 18px;
+    width: 18px;
+}
+
+.CInput{
+    background-color: #f4f4f4;
+
+    /* border: 1px solid #f4f4f4; */
+    border-radius: 10px;
+
+    height: 40px;
+    min-width: 100%;
+
+    padding: 8px 0 0 5px;
+    margin-bottom: 25px;
+
+    position: relative;
+}
+.nameInput{
+    /* background-color: grey; */
+
+    font-weight: 900;
+    font-size: 18px;
+
+    position: absolute;
+    top: -15px;
+    left: 10px;
+}
 
 .items{
-    /* width: 100%; */
+    /* background-color: greenyellow; */
+    margin-left: 15px;
+    
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: bolder;

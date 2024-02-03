@@ -97,7 +97,7 @@ function RegisterPage() {
             
           {console.log("img", image)}
           {     
-            !image&& <span className={styles.errores}>❌ Photo is requiered</span>
+            !image && <span className={styles.errores}>❌ Photo is requiered</span>
           }
           
           <input type= "username" placeholder="Username" {...register("username", {required: true})} className={styles.inputs}/>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTasks } from "../../contexts/taskContext"
 import { useAuth } from "../../contexts/authContext"
-import {TaskCard}  from "../../components/TaskCard/TaskCard" 
+import { TaskCard }  from "../../components/TaskCard/TaskCard" 
 import { TaskTest } from "../../components/TaskTest/TaskTest"
 
 import style from "./TaskPage.module.css"

@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react"
-// import { useTasks } from "../../contexts/taskContext"
+import { useState } from "react"
 
-// import { useAuth } from "../../contexts/authContext"
-import iconoTest from "../../../public/imgIconos/reloj-de-arena.png"
-import iconoTest2 from "../../../public/imgIconos/business-people.png"
-import iconoTest3 from "../../../public/imgIconos/masaje.png"
-import iconoTest4 from "../../../public/imgIconos/work-tools.png"
-import imgX from "../../../public/imgTests/boton-eliminar-3.png"
+import iconoTest  from "/imgIconos/reloj-de-arena.png"
+import iconoTest2 from "/imgIconos/business-people.png"
+import iconoTest3 from "/imgIconos/masaje.png"
+import iconoTest4 from "/imgIconos/work-tools.png"
+import imgX from "/imgTests/boton-eliminar-3.png"
+
 import StopWatch  from "../../components/StopWatch/StopWatch"
 import { Calendar } from "react-calendar"
+
 import style from "./TaskTast.module.css"
 
 
@@ -181,7 +181,7 @@ export const TaskTest = () => {
   
           <div className={style.Cheader}>
           <div className={style.Ctitle}>
-              <h2 className={style.title}>La lluvia cae suavemente sobre la ciudad, creando un ambiente tranquilo y acogedor que invita a la reflexión y al recogimiento. Las luces de la calle destellan entre las gotas, pintando un paisaje efímero pero hermoso. En este momento, el tiempo parece detenerse, permitiéndonos apreciar la belleza de la lluvia y sumergirnos en la serenidad del instante</h2>
+              <h2 className={style.title}>Test 3</h2>
           </div>
           <div className={style.Cbtns}>
               <img 
@@ -190,7 +190,7 @@ export const TaskTest = () => {
               />
           </div>
           </div>
-          <p className={`${style.description0} ${isClicked ? style.description : ''}`} > Test 3 </p>
+          <p className={`${style.description0} ${isClicked ? style.description : ''}`} >La lluvia cae suavemente sobre la ciudad, creando un ambiente tranquilo y acogedor que invita a la reflexión y al recogimiento. Las luces de la calle destellan entre las gotas, pintando un paisaje efímero pero hermoso. En este momento, el tiempo parece detenerse, permitiéndonos apreciar la belleza de la lluvia y sumergirnos en la serenidad del instante</p>
           <div className={style.contentDataBtn}>
           
           <p className={style.date}> 3/02/2024 </p>

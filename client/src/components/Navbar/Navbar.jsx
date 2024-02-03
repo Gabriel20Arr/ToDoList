@@ -49,7 +49,7 @@ export const Navbar = () => {
                     <li className={style.lis}>⭐ Favorites</li>
                 </Link> 
 
-                <Link to={'/add-task'}>
+                <Link to={'/help'}>
                     <li className={style.lis}>🗨️ Help</li>
                 </Link>
             </div>
