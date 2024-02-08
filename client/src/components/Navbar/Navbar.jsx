@@ -24,7 +24,7 @@ export const Navbar = () => {
             <div className={style.profile}>
                 {   
                 !(user  && isAuthenticated) ?
-                    <Link to={'/login'} className={style.lis0Login}>
+                    <Link to={'/auth'} className={style.lis0Login}>
                         <li className={style.liLogin}>🔗 Login</li>
                     </Link> :
                     <div className={style.ContentProfile}>
@@ -58,7 +58,7 @@ export const Navbar = () => {
                 {
                     (user  && isAuthenticated)
                         ?
-                    (<Link to={'/login'} >
+                    (<Link to={'/auth'} >
                         <li className={style.lis} onClick={Logout}>🚫 Logout</li>
                     </Link>) 
                         :

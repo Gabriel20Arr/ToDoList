@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/authContext'
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import imageUser from "/imgTests/silueta-de-persona.jpg" 
+import btnDetele from "/imgTests/boton-eliminar-2.png"
 
 import styles from "./RegisterPage.module.css"
 
@@ -27,7 +28,6 @@ function RegisterPage() {
       "https://api.cloudinary.com/v1_1/dmtzjtgy8/image/upload", data
     )
 
-    // console.log('res', res.data)
     setImage(res.data.secure_url)
     // console.log(res.data)
     
@@ -58,7 +58,7 @@ function RegisterPage() {
       <div className={styles.container}>
         <form onSubmit={handlerSubmit} className={styles.formm}>
 
-          <h2 className={styles.title} >Register</h2>
+          <h2 className={styles.title} >Sing Up</h2>
           {
             errores.map( (error, index) =>( 
               <span key={index} className={styles.errores2}>
@@ -90,7 +90,9 @@ function RegisterPage() {
                   // {...register("profile", {required: true})}
               />
                 
-              <button className={styles.btndeleteimg} onClick={DeleteImage}>Delete</button>
+              <button className={styles.btndeleteimg} onClick={DeleteImage}>
+                <img src={btnDetele} alt="delete" className={styles.imgX} />
+              </button>
             </div>
           
           </div>
@@ -100,19 +102,26 @@ function RegisterPage() {
             !image && <span className={styles.errores}>❌ Photo is requiered</span>
           }
           
-          <input type= "username" placeholder="Username" {...register("username", {required: true})} className={styles.inputs}/>
+          <div className={styles.containerInputs}>
+            <span className={styles.names}>Name</span>
+            <input type= "username" {...register("username", {required: true})} className={styles.inputs}/>
+          </div>
           {
             errors.username && <span className={styles.errores}>❌ Username is requiered</span>
           }
 
-
-          <input type="email"  placeholder="Email" {...register("email", { required: true})} className={styles.inputs}/>
+          <div className={styles.containerInputs}>
+            <span className={styles.names}>Email</span>
+            <input type="email"  {...register("email", { required: true})} className={styles.inputs}/>
+          </div>
           {
             errors.email && <span className={styles.errores}>❌ Email is requiered</span>
           }
 
-
-          <input type="text" placeholder="Password" {...register("password", {required: true})} className={styles.inputs}/>
+          <div className={styles.containerInputs}>
+            <span className={styles.names}>Password</span>
+            <input type="text" {...register("password", {required: true})} className={styles.inputs}/>
+          </div>
           {
             errors.password && <span className={styles.errores}>❌ Password is requiered</span>
           }
@@ -120,13 +129,13 @@ function RegisterPage() {
           <div className={styles.textC}>
             <span className={styles.textC2}>
              <Link to={'/login'}>
-              Do you already have an account?
+              did you forget your password?
             </Link>
             </span>
           </div>
           
-          <button type="submit" className="font-bold border rounded-lg hover:bg-white hover:text-black p-1 pl-3 pr-3 max-w-fit">
-            Registrarse
+          <button type="submit" className={styles.btnL}>
+            Sign Up
           </button>        
         
         </form>

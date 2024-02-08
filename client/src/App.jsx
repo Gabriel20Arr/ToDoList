@@ -20,7 +20,7 @@ function App() {
   const Location = useLocation()
   return (
     <div className="container">
-      { Location.pathname !== "/register" && Location.pathname !== "/login" && Location.pathname !== "/error-page" && Location.pathname !== "/test" ?  
+      { Location.pathname !== "/register" && Location.pathname !== "/login" && Location.pathname !== "/error-page" && Location.pathname !== "/auth" ?  
         <div className="nav">
           <Navbar />
         </div>
@@ -30,9 +30,9 @@ function App() {
         <Routes>
           {/* rutas publicas */}
           <Route path='/' element={<Home className="home"/>} />
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/test' element={<Test />} />
+          {/* <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} /> */}
+          <Route path='/auth' element={<Test />} />
 
           {/* rutas privadas */}
           <Route element={<ProtectedRoutes />}>

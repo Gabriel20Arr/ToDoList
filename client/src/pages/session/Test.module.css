@@ -7,20 +7,26 @@
     align-items: center;
 
     color: white;
+
+    background-color: white;
 }
 
-/* Login */
+/* register */
 
 .c1{
-    animation:rotate-vertical-center 1s; 
+    animation:rotate-vertical-center 1.5s; 
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border: 4px solid black;
+    border: 1px solid #adadad;
+    border-radius: 20px;
 
     max-width: 500px;
     min-height: 350px;
+
+    background-color: #e5e7eb;
 }
 
 @keyframes rotate-vertical-center{
@@ -31,8 +37,6 @@
 .Login{
     max-width: 60%;
     min-height: 350px;
-
-    /* background-color: red; */
 }
 
 .containerBtnL{
@@ -41,35 +45,70 @@
     justify-content: center;
     align-items: center;
     
-    background-color:aquamarine ;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
 
+    padding: 5px;
+    
     min-width: 35%;
     min-height: 400px;
 
     color: black;
 }
 
+.title{
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    /* text-align: center; */
+
+    margin-bottom: 20px;
+}
+
+.description{
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-align: justify;
+
+    margin: 0 20px;
+}
+
 .btnL{
     font-weight: bold;
     font-size: 20px;
 
-    background-color: blue;
-    padding: 5px;
+    border-radius: 10px;
+    background-color: #adadad;
+    padding: 3px 10px;
 
+    margin-top: 25px;
+
+    transition: transform 0.6s ease-in-out;
 }
+
+.btnL:hover{
+    background-color: white;
+    border: 1px solid #adadad;
+    transform: scale(1.1);
+}
+
 /* Register */
 
 .c2{
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    border: 1px solid #adadad;
+    border-radius: 20px;
+    
+    /* border: 1px solid red; */
+    width: 550px;
+    max-height: 450px;
 
-    border: 4px solid black;
-
-    width: 500px;
-    max-height: 400px;
-
-    animation:rotate-vertical-center2 0.9s; 
+    animation:rotate-vertical-center2 1.5s; 
 }
 
 
@@ -81,6 +120,8 @@
 .register{
     max-width: 65%;
     max-height: 100%;
+
+    border-radius: 20px;
 }
 
 
@@ -90,23 +131,41 @@
     justify-content: center;
     align-items: center;
     
-    background-color:aquamarine ;
+    background-color: white;
+    border-radius: 20px;
 
+    padding: 5px;
+    
     min-width: 35%;
     min-height: 400px;
 
     color: black;
 }
 
-.title{
+.titleR{
     font-weight: bold;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+
+    margin-bottom: 20px;
 }
 
 .btnR{
     font-weight: bold;
     font-size: 20px;
 
-    background-color: greenyellow;
-    padding: 5px;
+    border-radius: 10px;
+    background-color: #adadad;
+    padding: 3px 10px;
 
+    margin-top: 25px;
+
+    transition: transform 0.6s ease-in-out;
+}
+
+.btnR:hover{
+    background-color: white;
+    border: 1px solid #adadad;
+    transform: scale(1.1);
 }

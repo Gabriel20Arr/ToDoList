@@ -9,7 +9,7 @@ export const ProtectedRoutes = () => {
       <span className="loader"></span>
      </div>
      
-    if(!loading && !isAuthenticated) return <Navigate to={'login'} replace />
+    if(!loading && !isAuthenticated) return <Navigate to={'auth'} replace />
     
   return (
     <Outlet />

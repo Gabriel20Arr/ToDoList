@@ -35,13 +35,19 @@ function LoginPage() {
             ))
           }
 
-          <input type="email"  placeholder="Email" {...register("email", { required: true})} className={styles.inputs}/>
+          <div className={styles.containerInputs}>
+            <span className={styles.names}>Email</span>
+            <input type="email"   {...register("email", { required: true})} className={styles.inputs}/>
+          </div>
           {
             errors.email && <span className={styles.errores}>❌ Email is requiered</span>
           }
 
 
-          <input type="password" placeholder="Password" {...register("password", {required: true})} className={styles.inputs}/>
+          <div className={styles.containerInputs2}>
+            <span className={styles.names}>Password</span>
+            <input type="password"  {...register("password", {required: true})} className={styles.inputs}/>
+          </div>
           {
             errors.password && <span className={styles.errores}>❌ Password is requiered</span>
           }
@@ -49,12 +55,12 @@ function LoginPage() {
           <div className={styles.textC}>
             <span className={styles.textC2}>
              <Link to={'/register'} >
-              Don't you have an account yet?
+              Did you forget your password?
             </Link>
             </span>
           </div>
 
-          <button type="submit" className="font-bold border rounded-lg hover:bg-white hover:text-black p-1 pl-3 pr-3 max-w-fit">
+          <button type="submit" className={styles.btnL}>
             Login
           </button>        
 

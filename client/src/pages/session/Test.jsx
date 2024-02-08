@@ -33,9 +33,9 @@ function Test() {
         {   hiden ?
             <div className={styles.c1} >
               <div className={styles.containerBtnL}>
-                <h1>Bienvenido nuevamente!!</h1>
-                <p>Si aun no tienes una cuenta porfavor registrate aqui</p>
-                <button onClick={handlerHiden} className={styles.btnL}>Register</button>
+                <h1 className={styles.title}>Welcome!!</h1>
+                <p className={styles.description}>If you do not have an account yet, please register here</p>
+                <button onClick={handlerHiden} className={styles.btnL}>Sing Up</button>
               </div>
               <div className={styles.Login}>
                   <LoginPage />
@@ -44,8 +44,8 @@ function Test() {
                 :
             <div className={styles.c2} >
               <div className={styles.containerBtnR}>
-                <h1>Bienvenido!!</h1>
-                <p>Para unirte a la app porfavor inicia session con tus datos</p>
+                <h1 className={styles.titleR}>Welcome again!!</h1>
+                <p className={styles.description}>To join the app please log in with your details</p>
                 <button onClick={handlerHiden} className={styles.btnR}>Login</button>
               </div>
               <div className={styles.register}>

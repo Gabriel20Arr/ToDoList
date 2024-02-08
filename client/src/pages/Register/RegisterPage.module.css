@@ -1,12 +1,13 @@
 .container{
-    /* height: 100vh; */
-    
     display: flex;
     justify-content: center;
     align-items: center;
 
-    color: white;
+    color: black;
 
+    background-color: #e5e7eb;
+    border-radius: 20px;
+    /* border: 1px solid red; */
     /* background: url(/imgTests/Universo.jpg) fixed no-repeat;
     background-size: cover; */
 }
@@ -21,16 +22,18 @@
     height: 400px;
     width: 340px;
 
-    border: 1px solid white;
+    /* border: 1px solid red; */
+    border-radius: 0 20px 20px 0;
 
     padding: 10px;
     backdrop-filter: blur(15px);
+
 }
 
 .title{
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bolder;
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid white; */
 
     width: 85%;
 
@@ -48,9 +51,11 @@
     
     max-width: 85%;
 
-    /* border: 1px solid white; */
+    /* border: 1px solid red; */
 
     margin-bottom: 10px;
+
+    position: relative;
 }
 
 
@@ -82,6 +87,7 @@
 
     border: 2px solid white;
     border-radius: 50%;
+
 }
 
 .loaders {
@@ -95,8 +101,8 @@
     animation: rotation 1s linear infinite;
 
     position: absolute;
-    top: 28%;
-    left: 16%;
+    top: 15px;
+    left: 15px;
 
     z-index: 15;
 }
@@ -111,17 +117,21 @@
     /* border: 1px solid black; */
 
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     
     max-width: 75%;
+    height: fit-content;
+
+    position: relative;
 }
 
 .inputimg{
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    
-    max-width: 60%;
+
+    /* border: 1px solid white; */
+    max-width: 63%;
 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 550;
@@ -130,33 +140,49 @@
 }
 
 .btndeleteimg{
-    border: 1px solid black;
-    border-radius: 5px;
-    
-    background-color: white;
-
-    font-weight: 700;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    width: 50px;
-    height: 23px;
+
+    position: absolute;
+    left: -18px;
+    top: -15px;
+}
+
+.imgX{
+    width: 12px;
+    height: 12px;
+}
+
+.containerInputs{
+    position: relative;
+
+    width: 85%;
+    min-height: 30px;
 
     margin-bottom: 10px;
-    padding: 2px;
+}
 
-    color: black;
+.names{
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    position: absolute;
+    left: 15px;
+    top: -10px;
 }
 
 .inputs{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     
     width: 85%;
+    min-height: 30px;
 
     margin-bottom: 10px;
     padding: 2px;
+    padding-left: 15px;
 
     color: black;
 }
@@ -206,4 +232,24 @@
     /* color: rgb(37, 37, 253); */
     border-bottom: 1px solid blue;
     font-size: 9px;
+}
+
+.btnL{
+    color: black;
+    font-size: 15spx;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    padding: 2px 10px;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.btnL:hover{
+    transform: scale(1.1);
+    
+    background-color: white;
 }
