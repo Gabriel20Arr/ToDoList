@@ -1,11 +1,12 @@
 import React, { useRef } from 'react'
 import emailjs from "@emailjs/browser"
 
-import styles from "./Help.module.css"
+import styles from "./validation.module.css"
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-export const Help = () => {
+
+export const Validation = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -14,10 +15,9 @@ export const Help = () => {
     // Obtener los valores de los campos del formulario
     const name = form.current.user_name.value;
     const email = form.current.user_email.value;
-    const message = form.current.message.value;
 
     // Realizar validaciones
-    if (!name || !email || !message) {
+    if (!name || !email) {
       Swal.fire({
         title: 'Alerta!',
         text: 'Completar todos los campos',
@@ -28,7 +28,7 @@ export const Help = () => {
     }
 
     // Validar el formato del correo electrónico usando una expresión regular simple
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[^\s@]+@gmail\.com$/;
     if (!emailPattern.test(email)) {
       Swal.fire({
             title: 'Alerta!',
@@ -42,7 +42,7 @@ export const Help = () => {
 
     // Si todas las validaciones pasan, enviar el formulario
     emailjs
-      .sendForm("service_hg0hxay" , "template_n4swmv7", form.current, '1LZEauZPTMLf39Fyv')
+      .sendForm('service_hg0hxay', 'template_b0jujif', form.current, '1LZEauZPTMLf39Fyv')
       .then(
         (result) => {
           console.log(result.text);
@@ -65,15 +65,13 @@ export const Help = () => {
   return (
     <div className={styles.containerHelp} >
         <form ref={form} onSubmit={sendEmail} className={styles.containerForm}>
-         <span className={styles.title}>Form Help</span>
-         <span className={styles.title2}>hear more about how we can help</span>
+         <span className={styles.title}>Form Validation User</span>
+         <span className={styles.title2}>Enter your information to validate your account</span>
      
          <input type='text' name='user_name' placeholder='Name' className={styles.input} />
      
          <input type='text' name='user_email' placeholder='Email' className={styles.input} />
      
-         <textarea placeholder='Message' name="message" className={styles.inputT} />
- 
          <button value="Send" className={styles.btnS}>Send</button>
         </form>
     </div>

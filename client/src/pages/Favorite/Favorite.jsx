@@ -15,7 +15,7 @@ export const Favorite = () => {
   
   return (
     <div className={style.container}>
-    <h1 className={style.title}>⭐ Favorite ⭐</h1>
+    <h1 className={style.title}>Favorite</h1>
     <div className={style.container0}>
       { 
         fav?.map((fav) => (

@@ -23,7 +23,7 @@
     font-weight: bold;
     font-size: 25px;
     
-    width: 160px;
+    width: fit-content;
     height: 30px;
     
     position: absolute;
@@ -59,7 +59,7 @@
     background-color: white;
     
     width: 350px;
-    min-height: 350px;
+    min-height: 290px;
     
     display: flex;
     flex-direction: column;
@@ -126,13 +126,15 @@
     font-weight: bold;
     /* font-size: 20px; */
 
-    width: 250px;
+    width: 100px;
     height: 25px;
 
     transition: transform 0.7s ease-in-out;
 }
 
-.btnS:hover{
-    transform: scale(1.05);
-    background-color: #d5d5d5;
+.btnS:hover {
+    transform: scale(1.1);
+    
+    background-color: #e0e0e0;
+    border: 1px solid #f4f4f4;
 }

@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react"
-import { registerRequest, loginrequest, profilerequest, verifytokenRequet } from "../api/auth.js"
+import { registerRequest, loginrequest, profilerequest, verifytokenRequet, forgetPasswordRequet } from "../api/auth.js"
 import Cookies from "js-cookie"
 
 export const Authcontext = createContext()
@@ -103,6 +103,15 @@ export const AuthProvider = ({children}) => {
         }
     } 
 
+    const forget_Pass = async (id) => {
+        try {
+            const res = await forgetPasswordRequet(id)
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return(
         <Authcontext.Provider value={{
             signup,
@@ -112,7 +121,8 @@ export const AuthProvider = ({children}) => {
             errores,
             loading,
             profile,
-            Logout
+            Logout,
+            forget_Pass
         }}>
             {children}
         </Authcontext.Provider>

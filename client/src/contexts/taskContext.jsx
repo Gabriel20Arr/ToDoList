@@ -80,34 +80,6 @@ export function TaskProvider({ children }) {
         }
     }, [errores] )
 
-
-    // CALENDAR
-    const calendarById = async (id) => {
-        const res = await geCalendarrequest(id)
-        console.log(res.data);
-        return res.data
-    } 
-
-    const createCalendar =  async ( calendar ) => {
-        const res = await creatCalendarRequest(calendar);
-        // console.log(res);    
-    }
-
-    const UpdatCalendar = async (id, calendar) => {
-        const res = await updatCalendarRequest(id, calendar)
-        // console.log(res);
-    }
-
-    const deletCalendar = async (id) => {
-        try {
-            const res = await deleteCalendarrequest(id)
-            if(res.status === 200) setTask(task.filter(calendar => calendar._id !== id))
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    
     return(
         <TaskContext.Provider 
             value={{ 

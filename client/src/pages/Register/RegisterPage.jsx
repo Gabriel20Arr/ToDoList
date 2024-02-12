@@ -7,7 +7,8 @@ import imageUser from "/imgTests/silueta-de-persona.jpg"
 import btnDetele from "/imgTests/boton-eliminar-2.png"
 
 import styles from "./RegisterPage.module.css"
-
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -51,8 +52,6 @@ function RegisterPage() {
       signup(values)
     })
     
-    // console.log("errores", errores);
-    // console.log("errors", errors);
     
     return (
       <div className={styles.container}>
@@ -97,7 +96,7 @@ function RegisterPage() {
           
           </div>
             
-          {console.log("img", image)}
+          {/* {console.log("img", image)} */}
           {     
             !image && <span className={styles.errores}>❌ Photo is requiered</span>
           }
@@ -112,10 +111,20 @@ function RegisterPage() {
 
           <div className={styles.containerInputs}>
             <span className={styles.names}>Email</span>
-            <input type="email"  {...register("email", { required: true})} className={styles.inputs}/>
+            <input
+              type="text"
+              {...register("email", {
+                required: true,
+                pattern: {
+                  value: /^[^\s@]+@gmail\.com$/,
+                  message: "Please enter a valid email",
+                },
+              })}
+              className={styles.inputs}
+            />
           </div>
           {
-            errors.email && <span className={styles.errores}>❌ Email is requiered</span>
+            errors.email && <span className={styles.errores}>❌ {errors.email?.message}</span>
           }
 
           <div className={styles.containerInputs}>
@@ -125,14 +134,6 @@ function RegisterPage() {
           {
             errors.password && <span className={styles.errores}>❌ Password is requiered</span>
           }
-
-          <div className={styles.textC}>
-            <span className={styles.textC2}>
-             <Link to={'/login'}>
-              did you forget your password?
-            </Link>
-            </span>
-          </div>
           
           <button type="submit" className={styles.btnL}>
             Sign Up

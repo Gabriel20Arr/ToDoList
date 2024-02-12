@@ -52,13 +52,13 @@ function LoginPage() {
             errors.password && <span className={styles.errores}>❌ Password is requiered</span>
           }
           
-          <div className={styles.textC}>
+          {/* <div className={styles.textC}>
             <span className={styles.textC2}>
-             <Link to={'/register'} >
+             <Link to={'/validation'} >
               Did you forget your password?
             </Link>
             </span>
-          </div>
+          </div> */}
 
           <button type="submit" className={styles.btnL}>
             Login

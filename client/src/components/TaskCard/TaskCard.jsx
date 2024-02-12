@@ -30,7 +30,6 @@ export const TaskCard = ({ task }) => {
     const storedValue = localStorage.getItem(localStorageKey);
     return storedValue ? new Date(storedValue) : null;
   });
-  // const [alertShown, setAlertShown] = useState(false);
 
   const ShowCard = ()  => {
       setIsClicked(!isClicked);

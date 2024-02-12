@@ -67,7 +67,6 @@ export const TaskFormPage = () => {
   return (
     <div className={style.conteiner}>
 
-    
       <form className={style.formC} onSubmit={onSubmit}>
         <div className={style.ContentCategory}>
             {getCategoryNumber()}
