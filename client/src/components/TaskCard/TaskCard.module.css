@@ -190,7 +190,7 @@
 .description0{
     /* border: 1px solid black; */
     
-    max-width: 350px;
+    max-width: 330px;
     overflow: hidden;
     
     text-overflow: ellipsis;
@@ -325,8 +325,6 @@
     
     width: 100%;
     height: fit-content;
-
-    /* border-radius: 50px; */
 }
 
 .stopwatch-active .task {
@@ -405,5 +403,176 @@
 .selectedDate{
     color: blue;
     font-size: 20px;
-    font-weight:900;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 450px){
+    .task{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* height: 80px; */
+        max-width: 280px;
+        min-width: 280px;
+    
+        margin-bottom: 15px;
+        /* padding: 0 10px; */
+    
+        /* border: 1px solid black; */
+        border-radius: 20px;
+    
+        /* background-color: rgb(84, 152, 255); */
+        background-color: white;
+    
+    
+        position: relative;
+        transition: transform 0.4s ease-in-out;
+    }
+    
+    .task:hover{
+        /* border: 1px solid white; */
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .description0{
+        /* border: 1px solid black; */
+        
+        max-width: 255px;
+        overflow: hidden;
+        
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        
+        font-size: 12px;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        color: black;
+        
+        display: flex;
+        align-items: center;
+        padding: 0 5px ;
+    
+        margin-top: 5px;
+    }
+    
+    .description{
+        display: block;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        border-radius: 5px;
+        
+        max-width: 100%; /* Cambiado a max-width */
+        min-height: 68%;
+        /* overflow: hidden; */
+        position: relative;
+    
+        font-size: 11px;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: start;
+        color: black;
+        
+        padding: 3px;
+    
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    /* Container stopwatch and Date */
+    .sw{
+        width: 100%;
+        border-top: 1px solid black;
+        margin: 10px;
+        padding-top: 10px;
+    }
+
+    .sw2{
+        display: flex;
+        justify-content: center;
+        
+        max-width: 100%;
+        /* height: fit-content; */
+    }
+
+    .stopwatch-active .task {
+        pointer-events: none;
+    }
+
+    .Ccalendar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        min-width: 150px;
+
+        border-radius: 5px;
+    }
+    
+    .calendar {
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        
+        max-width: 180px;
+        
+        border-radius: 5px;
+        border: none;
+
+        z-index: 800;
+    }
+
+    .btnCalendar{
+        display: flex;
+        flex-direction: column;
+        
+        font-weight: bold;
+        font-family:'Times New Roman', Times, serif;
+        
+        background-color: #dcdcdc;
+        border-radius: 10px;
+        
+        padding: 2px 10px;
+        margin-bottom: 5px;
+        
+        z-index: 800;
+    }
+
+    .btnCalendarPulsado{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-weight: bold;
+        font-family:'Times New Roman', Times, serif;
+        
+        max-width: 225px;
+        
+        background-color: white;
+        border-radius: 10px;
+        
+        padding: 2px 10px;
+        margin-bottom: 5px;
+        
+        z-index: 800;
+    }
+
+    /* Value calendar */
+
+    .selectedDate{
+        color: blue;
+        font-size: 20px;
+        font-weight:900;
+    }
+
+    .finish{
+        font-family: Arial, Helvetica, sans-serif;
+        /* margin-right: 15px; */
+        margin-top: 20px;
+    }
+    
+    .finishValue{
+        border-bottom: 1px solid black;
+        font-weight: bold;
+    }
 }

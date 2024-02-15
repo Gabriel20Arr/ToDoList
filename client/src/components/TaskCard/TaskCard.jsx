@@ -30,6 +30,7 @@ export const TaskCard = ({ task }) => {
     const storedValue = localStorage.getItem(localStorageKey);
     return storedValue ? new Date(storedValue) : null;
   });
+  // const [alertShown, setAlertShown] = useState(false);
 
   const ShowCard = ()  => {
       setIsClicked(!isClicked);
@@ -179,11 +180,7 @@ export const TaskCard = ({ task }) => {
               isClicked ?
               <div className={style.sw}>
                 <div className={style.sw2} onClick={handleStopWatchClick}>
-
-                  <StopWatch />
-
                   <div className={style.Ccalendar}>
-                      
                      <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
                     { 
                       isPulsado ? 
@@ -197,13 +194,12 @@ export const TaskCard = ({ task }) => {
                           }}
                         /> 
                       : (value && (
-                          <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                          <p className={style.finish}>Complete to: <span className={style.finishValue}>{value.toLocaleDateString()}</span></p>
                         ))  
                     }
                             {showAlertIfCurrentDate()}
-
                   </div>
-                  {console.log({value})}
+                  <StopWatch />
                       
                 </div>
               </div> : ''

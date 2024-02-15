@@ -14,15 +14,13 @@ import { Navbar } from './components/Navbar/Navbar'
 import { PageError } from './pages/PageError/PageError'
 import { Help } from './pages/Help/Help'
 import Test from "./pages/session/Test"
-import { Validation } from './pages/validation/validation'
-import { ForgetPass } from './pages/forgetPass/ForgetPass'
 
 
 function App() { 
   const Location = useLocation()
   return (
     <div className="container">
-      { Location.pathname !== "/register" && Location.pathname !== "/login" && Location.pathname !== "/error-page" && Location.pathname !== "/auth" && Location.pathname !== "/validation" ?  
+      { Location.pathname !== "/register" && Location.pathname !== "/login" && Location.pathname !== "/error-page" && Location.pathname !== "/auth" ?  
         <div className="nav">
           <Navbar />
         </div>
@@ -32,9 +30,9 @@ function App() {
         <Routes>
           {/* rutas publicas */}
           <Route path='/' element={<Home className="home"/>} />
-          <Route path='/forget-password' element={<ForgetPass />} /> 
+          {/* <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} /> */}
           <Route path='/auth' element={<Test />} />
-          <Route path='/validation' element={<Validation />} />
 
           {/* rutas privadas */}
           <Route element={<ProtectedRoutes />}>

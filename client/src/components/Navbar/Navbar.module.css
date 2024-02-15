@@ -1,11 +1,7 @@
 .container0 {
     max-height: 100vh;
-    min-width: 160px;
+    max-width: 160px;
     border: 1px solid white;
-
-    background-color: white;
-
-    /* border: 5px solid red; */
 
     padding: 0 0 15px 0;    
 }
@@ -20,7 +16,7 @@
     font-weight: bold;
 
     width: 160px;
-    height: 100%;
+    height: 102%;
 
     background-color: white;
 }
@@ -71,7 +67,6 @@
 
 .profile{
     background-color: rgb(244, 244, 244);
-    /* background-color: red; */
     display: flex;
     align-content: center;
 
@@ -90,10 +85,6 @@
     display: flex;
     justify-content: center;
     align-items: self-end;
-
-    /* border-bottom: 1px solid black; */
-    /* border-left: 1px solid black; */
-    /* border-bottom-left-radius: 20px; */
 }
 
 .image{
@@ -187,4 +178,128 @@
     justify-content: center;
     
     max-width: 200px;
+}
+
+/* version mobile */
+.containerMobile {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    .containerMobile{
+        display: block;
+        height: 100vh;
+        max-width: 70px;
+    }
+    
+    .containerMobile2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        min-height: 100vh;
+        max-width: 70px;
+        border: 1px solid white;
+
+        background-color: white;
+    
+        padding: 0 0 15px 0; 
+    }
+    
+    .container {
+        display:none;
+    }
+    
+    .lis0Login{
+        background-color: #F1F1F1;
+        border-radius: 15px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        width: 60px;
+        height: 40px;
+
+        margin-top: 15px;
+    }
+    
+    .imgLogin{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        
+        height: 25px;
+        width: 25px;
+
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .liLogin:hover{
+        -webkit-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+        box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+    
+        transform: scale(1.08);
+    
+        /* border: 1px solid black; */
+    }
+    
+    .profileM{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    
+        min-width: 60px;
+    }
+    
+    .image{
+        width: 40px;
+        height: 40px;
+    
+        margin-top: 20px;
+        
+        border-radius: 50%;
+    }
+    
+    .Clis{
+        display: flex;
+        flex-direction: column;
+
+        width: 60px;
+    }
+    
+    .lis {
+        background-color: #F1F1F1;
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        
+        height: 40px;
+        width: 40px;
+
+        padding-right: 25%;
+        
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .lis:hover{
+        -webkit-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+        box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+    
+        transform: scale(1.08);
+    
+        border: 1px solid black;
+    }
+    
+    .loguot{
+        display: flex;
+        flex-direction: column;
+    
+        align-items: center;
+        justify-content: center;
+        
+        max-width: 60px;
+    }
 }
