@@ -76,24 +76,24 @@ export const TaskTest = () => {
           isClicked ?
           <div className={style.sw}>
               <div className={style.sw2} onClick={handleStopWatchClick}>
-  
-              <StopWatch />
-  
-              <div className={style.Ccalendar}>
-                  
-                  <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
-                  { 
-                  isPulsado ? 
-                      <Calendar 
-                      className={style.calendar} 
-                      onChange={setValue} 
-                      value={value} 
-                      /> 
-                  : (value && (
-                      <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                      ))  
-                  }
-              </div>
+                <div className={style.Ccalendar}>
+                    
+                    <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
+                    { 
+                    isPulsado ? 
+                        <Calendar 
+                        className={style.calendar} 
+                        onChange={setValue} 
+                        value={value} 
+                        /> 
+                    : (value && (
+                        <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                        ))  
+                    }
+                </div>
+                
+                <StopWatch />
+
               </div>
           </div> : ''
           }
@@ -143,29 +143,29 @@ export const TaskTest = () => {
           isClicked ?
           <div className={style.sw}>
               <div className={style.sw2} onClick={handleStopWatchClick}>
-  
-              <StopWatch />
-  
-              <div className={style.Ccalendar}>
-                  
-                  <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
-                  { 
-                  isPulsado ? 
-                      <Calendar 
-                      className={style.calendar} 
-                      onChange={setValue} 
-                      value={value} 
-                      // tileClassName={({ date, view }) => {
-                      //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
-                      // }}
-                      /> 
-                  : (value && (
-                      <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                      ))  
-                  }
-                          {/* {showAlertIfCurrentDate()} */}
-  
-              </div>
+                <div className={style.Ccalendar}>
+                    
+                    <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
+                    { 
+                    isPulsado ? 
+                        <Calendar 
+                        className={style.calendar} 
+                        onChange={setValue} 
+                        value={value} 
+                        // tileClassName={({ date, view }) => {
+                        //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
+                        // }}
+                        /> 
+                    : (value && (
+                        <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                        ))  
+                    }
+                            {/* {showAlertIfCurrentDate()} */}
+    
+                </div>
+
+                <StopWatch />
+
               </div>
           </div> : ''
           }
@@ -214,29 +214,29 @@ export const TaskTest = () => {
           isClicked ?
           <div className={style.sw}>
               <div className={style.sw2} onClick={handleStopWatchClick}>
-  
-              <StopWatch />
-  
-              <div className={style.Ccalendar}>
+    
+                <div className={style.Ccalendar}>
+                    <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
+                    { 
+                    isPulsado ? 
+                        <Calendar 
+                        className={style.calendar} 
+                        onChange={setValue} 
+                        value={value} 
+                        // tileClassName={({ date, view }) => {
+                        //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
+                        // }}
+                        /> 
+                    : (value && (
+                        <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                        ))  
+                    }
+                            {/* {showAlertIfCurrentDate()} */}
+    
+                </div>
                   
-                  <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
-                  { 
-                  isPulsado ? 
-                      <Calendar 
-                      className={style.calendar} 
-                      onChange={setValue} 
-                      value={value} 
-                      // tileClassName={({ date, view }) => {
-                      //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
-                      // }}
-                      /> 
-                  : (value && (
-                      <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                      ))  
-                  }
-                          {/* {showAlertIfCurrentDate()} */}
-  
-              </div>
+                <StopWatch />
+
               </div>
           </div> : ''
           }
@@ -286,28 +286,29 @@ export const TaskTest = () => {
           <div className={style.sw}>
               <div className={style.sw2} onClick={handleStopWatchClick}>
   
-              <StopWatch />
-  
-              <div className={style.Ccalendar}>
-                  
-                  <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
-                  { 
-                  isPulsado ? 
-                      <Calendar 
-                      className={style.calendar} 
-                      onChange={setValue} 
-                      value={value} 
-                      // tileClassName={({ date, view }) => {
-                      //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
-                      // }}
-                      /> 
-                  : (value && (
-                      <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
-                      ))  
-                  }
-                          {/* {showAlertIfCurrentDate()} */}
-  
-              </div>
+                <div className={style.Ccalendar}>
+                    
+                    <button onClick={pulsado} className={ isPulsado ? ` ${style.btnCalendarPulsado}` : `${style.btnCalendar}`} >🗓️ Calendar</button>
+                    { 
+                    isPulsado ? 
+                        <Calendar 
+                        className={style.calendar} 
+                        onChange={setValue} 
+                        value={value} 
+                        // tileClassName={({ date, view }) => {
+                        //   return date.toDateString() === (value && value.toDateString()) ? style.selectedDate : '';
+                        // }}
+                        /> 
+                    : (value && (
+                        <p className="bg-white font-bold rounded mt-5 p-1">Task completion: {value.toLocaleDateString()}</p>
+                        ))  
+                    }
+                            {/* {showAlertIfCurrentDate()} */}
+    
+                </div>
+                
+                <StopWatch />
+
               </div>
           </div> : ''
           }

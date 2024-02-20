@@ -71,6 +71,8 @@
     height: 45px;
     width: 45px;
 }
+
+
 /* FORMULARIO */
 
 .formC{
@@ -213,4 +215,26 @@
     padding: 2px 3px;
 
     margin-bottom: 5px;
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 500px) {
+    .formC{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+            
+        padding: 10px;
+        
+        min-height: 250px;
+        max-width: 290px;
+
+        /* border: 1px solid black; */
+        border-radius: 20px;
+        background-color: white;
+        
+        position: relative;
+    }
 }

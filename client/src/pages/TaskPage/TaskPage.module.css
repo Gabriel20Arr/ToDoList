@@ -47,3 +47,13 @@
     color: black;
 }
 
+
+.siTask {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bolder;
+    color: black;
+
+    margin-bottom: 10px;
+}
+

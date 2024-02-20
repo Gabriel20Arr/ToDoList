@@ -41,6 +41,7 @@ export const ProfilePage = () => {
               <img src={imgEditUser} alt='' className={styles.imgEdit} />
             </Link>
             </div>
+            
             <div className={styles.CInput}>
               <span className={styles.nameInput}>Name</span> 
               <span className={styles.items}>{dataP.username}</span>

@@ -150,10 +150,10 @@
 
     display: flex;
     justify-content: flex-start;
-    /* text-align: center; */
+    text-align: center;
 
     padding-left: 22%;
-    padding-top: 5%;
+    padding-top: 7%;
     
     margin: 10px 0; 
 
@@ -168,6 +168,13 @@
     transform: scale(1.08);
 
     /* border: 1px solid black; */
+}
+
+.lisImg{
+    width: 20px;
+    height: 20px;
+
+    margin-right: 5px;
 }
 
 .loguot{

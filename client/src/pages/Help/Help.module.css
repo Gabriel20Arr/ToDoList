@@ -135,4 +135,24 @@
 .btnS:hover{
     transform: scale(1.05);
     background-color: #d5d5d5;
+    /* -webkit-box-shadow: inset 1px -1px 23px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 1px -1px 23px 7px rgba(0,0,0,0.75);
+    box-shadow: inset 1px -1px 23px 7px rgba(0,0,0,0.75); */
+}
+
+@media screen and (max-width: 500px) {
+    .containerForm{
+        position: relative;
+    
+        border-radius: 20px;
+        background-color: white;
+        
+        width: 290px;
+        min-height: 350px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 }

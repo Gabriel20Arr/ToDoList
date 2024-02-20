@@ -17,7 +17,7 @@ export const TaskPage = () => {
   return (
     <div className={style.container0}>
       {(task && task.length > 0) || TaskTest ? (
-        ''
+        <h1 className={style.siTask}>Home</h1>
       ) : (
         <h1 className={style.noTask}>There are no tasks</h1>
       )}

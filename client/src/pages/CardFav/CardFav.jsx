@@ -170,7 +170,6 @@ export const CardFav = ({ fav }) => {
                         {showAlertIfCurrentDate()}
 
               </div>
-              {console.log({value})}
                   
             </div>
           </div> : ''
