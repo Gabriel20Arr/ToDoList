@@ -10,11 +10,12 @@ export const getFavs = async (req, res) => {
 }
 
 export const postFav = async ( req, res ) => {
-    const { id, title, description, date } = req.body;
+    const { id, title, description, category, date } = req.body;
 
     const newFav = new Favorite({
         title,
         description,
+        category,
         date,
         user: req.user.id
     })

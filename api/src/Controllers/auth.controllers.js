@@ -116,7 +116,7 @@ export const verifyToken = async (req, res) => {
 
 export const putPassword = async (req, res) => {
     try {
-        const userId = req.params.id;
+        const userId = req.body;
         const user = await User.findById(userId);
 
         if (!user) {

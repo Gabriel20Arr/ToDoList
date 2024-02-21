@@ -2,6 +2,11 @@ import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors"
+import { URL_LOCALHOST } from "./config.js"
+
+import { config } from "dotenv";
+config()
+const { URL_CLAUDINARY } =  process.env;
 
 import authRoutes from "./Routes/auth.routes.js";
 import tasksRoutes from "./Routes/tasks.routes.js";
@@ -11,9 +16,7 @@ import calendarRoutes from "./Routes/calendar.routes.js";
 const app = express()
 
 app.use(cors({
-    origin: [  
-               'http://localhost:5173', 'https://api.cloudinary.com/v1_1/dmtzjtgy8/todolist/upload'
-            ],
+    origin: [ URL_LOCALHOST, URL_CLAUDINARY ],
     credentials: true
 }
 ))
