@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors"
-import { URL_LOCALHOST } from "./config.js"
+import { URL_LOCALHOST2 } from "./config.js"
 
 import { config } from "dotenv";
 config()
@@ -16,7 +16,7 @@ import calendarRoutes from "./Routes/calendar.routes.js";
 const app = express()
 
 app.use(cors({
-    origin: [ URL_LOCALHOST, URL_CLAUDINARY ],
+    origin: [ URL_LOCALHOST2, URL_CLAUDINARY ],
     credentials: true
 }
 ))
