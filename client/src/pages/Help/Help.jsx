@@ -41,8 +41,11 @@ export const Help = () => {
     }
 
     // Si todas las validaciones pasan, enviar el formulario
+    const urlUSer = import.meta.env.VITE_USERSERVICER;
+    const urlServise = import.meta.env.VITE_TEMPLATEEMAIL;
+    
     emailjs
-      .sendForm("service_hg0hxay" , "template_n4swmv7", form.current, '1LZEauZPTMLf39Fyv')
+      .sendForm(urlUSer , urlServise, form.current, '1LZEauZPTMLf39Fyv')
       .then(
         (result) => {
           console.log(result.text);

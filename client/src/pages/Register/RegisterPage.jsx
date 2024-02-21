@@ -86,7 +86,7 @@ function RegisterPage() {
                   accept='image/*'
                   name='file'
                   onChange={uploadImage}
-                  // {...register("profile", {required: true})}
+                  {...register("profile", {required: true})}
               />
                 
               <button className={styles.btndeleteimg} onClick={DeleteImage}>
@@ -95,10 +95,8 @@ function RegisterPage() {
             </div>
           
           </div>
-            
-          {/* {console.log("img", image)} */}
           {     
-            !image && <span className={styles.errores}>❌ Photo is requiered</span>
+            errors.profile && <span className={styles.errores}>❌ Photo is requiered</span>
           }
           
           <div className={styles.containerInputs}>

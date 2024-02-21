@@ -8,13 +8,13 @@ import imgFav from "/imgIconos/favorite-svgrepo-com.svg"
 import imgHelp from "/imgIconos/help-svgrepo-com.svg"
 import imgLogout from "/imgIconos/logout-2-svgrepo-com.svg"
 import imgLogin from "/imgIconos/login-svgrepo-com.png"
-import ReactSwitch from "react-switch"
+
 
 export const Navbar = () => {
     const { Logout, user, isAuthenticated, profile } = useAuth();
     const [dataP, setDataP] = useState([])
     const [loading, setLoading] = useState(false)
-
+    
     useEffect(() => {
         const res = async (id) => {
         const ress = await profile(id)
@@ -59,6 +59,7 @@ export const Navbar = () => {
                 <Link to={'/help'}>
                     <li className={style.lis}> <img src={imgHelp} alt="" className={style.lisImg}/> Help</li>
                 </Link>
+               
             </div>
 
             <div className={style.loguot}>
@@ -71,8 +72,6 @@ export const Navbar = () => {
                         :
                     ''
                 }
-
-                <ReactSwitch />
             </div>
         </ul>
         
@@ -115,10 +114,11 @@ export const Navbar = () => {
                             <img src={imgHelp} alt=""/>
                         </li>
                     </Link>
+                   
                 </div>
 
                 <div className={style.loguot}>
-                    {
+                     {
                         (user  && isAuthenticated)
                             ?
                         (<Link to={'/auth'} >
@@ -130,11 +130,11 @@ export const Navbar = () => {
                         ''
                     }
                 </div>
-                <ReactSwitch />
             </ul>
         </div>
         
         
     </div>
   )
+
 }
