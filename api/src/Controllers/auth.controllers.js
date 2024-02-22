@@ -32,7 +32,6 @@ export const registers = async (req, res) => {
     // res.cookie("token", token)   
     res.cookie("token", token, {
         httpOnly: true,
-        sameSite: 'lax',  // Ajusta esto según las políticas de SameSite necesarias
         secure: true,
         path: "/"
     });   
