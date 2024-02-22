@@ -29,12 +29,14 @@ export const registers = async (req, res) => {
 
     const token = await createAccessToken({id: sevedUser._id})
 
-    // res.cookie("token", token)   
-    res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        path: "/"
-    });   
+    res.cookie("token", token)   
+    // res.cookie("token", token, {
+    //     expires: new Date(Date.now() + cookieDuration * 1000),
+    //     httpOnly: true,
+    //     sameSite: 'lax', 
+    //     secure: true,
+    //     path: "/"
+    // });   
     res.json({
         id: sevedUser._id,
         username: sevedUser.username,
