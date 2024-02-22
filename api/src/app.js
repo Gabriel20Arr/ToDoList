@@ -18,7 +18,7 @@ const app = express()
 const URLHOST = URL_LOCALHOST2 || "http://localhost:5173"
 
 app.use(cors({
-    origin: [ URLHOST, URL_CLAUDINARY ],
+    origin: [ URL_LOCALHOST2, URL_CLAUDINARY ],
     credentials: true
 }
 ))
