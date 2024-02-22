@@ -33,7 +33,7 @@ export const registers = async (req, res) => {
     res.cookie("token", token, {
         expires: new Date(Date.now() + cookieDuration * 1000),
         httpOnly: true,
-        sameSite: 'none',  // Ajusta esto según las políticas de SameSite necesarias
+        sameSite: 'lax',  // Ajusta esto según las políticas de SameSite necesarias
         secure: true,
         path: "/"
     });   
