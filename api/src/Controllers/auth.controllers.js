@@ -3,7 +3,9 @@ import User from "../Models/user.model.js"
 import bcrypt from "bcryptjs"
 import { createAccessToken } from "../Libs/jwt.js"
 import jwt from "jsonwebtoken";
-import { TOKEN_SECRET } from "../config.js";
+import {config} from "dotenv"
+config()
+const { TOKEN_SECRET } = process.env;
 
 
 export const registers = async (req, res) => {
