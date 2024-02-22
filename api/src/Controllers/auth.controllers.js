@@ -31,7 +31,6 @@ export const registers = async (req, res) => {
 
     // res.cookie("token", token)   
     res.cookie("token", token, {
-        expires: new Date(Date.now() + cookieDuration * 1000),
         httpOnly: true,
         sameSite: 'lax',  // Ajusta esto según las políticas de SameSite necesarias
         secure: true,
