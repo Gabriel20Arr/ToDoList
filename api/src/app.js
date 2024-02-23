@@ -16,11 +16,8 @@ import calendarRoutes from "./Routes/calendar.routes.js";
 const app = express()
 
 app.use(cors({
-    origin: [ "http://localhost:5173", "https://backendtodo-q512.onrender.com", "https://todolist-s3jc.onrender.com", URL_CLAUDINARY ],
-    credentials: true,
-    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-    optionsSuccessStatus: 204,
-    exposedHeaders: ['Content-type', 'Authorization']
+    origin: [ "http://localhost:5173", "https://backendtodo-q512.onrender.com", "https://todolist-s3jc.onrender.com", URL_CLAUDINARY, URL_LOCALHOST ],
+    credentials: true
 }
 ))
 
