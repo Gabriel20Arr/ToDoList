@@ -6,7 +6,7 @@ import { URL_LOCALHOST2 } from "./config.js"
 
 import { config } from "dotenv";
 config()
-const { URL_CLAUDINARY, URL_LOCALHOST, VITE_LOCALHOSTBACKLOCAL, VITE_LOCALHOSTBACK } =  process.env;
+const { URL_CLAUDINARY, URL_LOCALHOST, VITE_LOCALHOSTBACK } =  process.env;
 
 import authRoutes from "./Routes/auth.routes.js";
 import tasksRoutes from "./Routes/tasks.routes.js";
@@ -16,9 +16,9 @@ import calendarRoutes from "./Routes/calendar.routes.js";
 const app = express()
 
 app.use(cors({
-    origin: [ "http://localhost:5173", "https://backendtodo-q512.onrender.com", "https://todolist-s3jc.onrender.com", URL_CLAUDINARY, URL_LOCALHOST ],
+    origin: [ "http://localhost:4000", VITE_LOCALHOSTBACK, URL_CLAUDINARY, URL_LOCALHOST, URL_LOCALHOST2 ],
     credentials: true
-}
+    }
 ))
 
 app.use(morgan('dev'))
