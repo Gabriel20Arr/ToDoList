@@ -33,8 +33,8 @@ export const registers = async (req, res) => {
     res.cookie("token", token, {
         httpOnly: true,
         sameSite: 'none',
-        maxAge: '1d', 
         secure: true,
+        maxAge: 3600000, 
         path: "/"
     });    
 
@@ -69,8 +69,7 @@ export const login = async (req, res) =>  {
         httpOnly: true,
         sameSite: 'none', 
         secure: true,
-        maxAge: '1d',
-        domain: ".onrender.com",
+        maxAge: 3600000,
         path: "/"
     });   
 
