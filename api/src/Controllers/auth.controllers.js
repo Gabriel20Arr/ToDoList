@@ -32,10 +32,12 @@ export const registers = async (req, res) => {
     // res.cookie("token", token)  
     res.cookie("token", token, {
         httpOnly: true,
-        sameSite: 'none', 
+        sameSite: 'none',
+        maxAge: '1d', 
         secure: true,
         path: "/"
     });    
+
     res.json({
         id: sevedUser._id,
         username: sevedUser.username,
@@ -48,7 +50,6 @@ export const registers = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
 }
 
 export const login = async (req, res) =>  {
@@ -68,8 +69,21 @@ export const login = async (req, res) =>  {
         httpOnly: true,
         sameSite: 'none', 
         secure: true,
+        maxAge: '1d',
+        domain: ".onrender.com",
         path: "/"
     });   
+
+    /*
+        .cookie('token', tokenReceived.token, {
+          expires: new Date(Date.now() + cookieDuration * 1000),          
+          httpOnly: true,
+          sameSite: 'none',
+          secure: true, // Agrega esta línea si estás usando HTTPS
+          //domain: 'https://xxxxxs.ms/',
+          path: '/',
+        })
+    */ 
 
     res.json({
         id: userFound._id,
