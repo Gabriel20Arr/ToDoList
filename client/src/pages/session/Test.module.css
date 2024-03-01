@@ -26,7 +26,7 @@
     max-width: 500px;
     min-height: 350px;
 
-    background-color: white;
+    background-color: #e5e7eb;
 }
 
 @keyframes rotate-vertical-center{
@@ -80,6 +80,8 @@
     font-size: 20px;
 
     border-radius: 10px;
+    border: 1px solid #adadad;
+
     background-color: white;
     padding: 3px 10px;
 
@@ -195,14 +197,14 @@
     
         border: 1px solid #adadad;
         border-radius: 20px;
-    
+
         max-width: 400px;
         min-height: 350px;
     
         background-color: #e5e7eb;
     }
 
-
+    
     /* Register */
 
     .c2{
@@ -250,7 +252,7 @@
         max-width: 300px;
         max-height: fit-content;
         
-        background-color: #e5e7eb;
+        background-color: white;
     }
     
     @keyframes rotate-vertical-center{
@@ -278,8 +280,6 @@
         min-height: 190px;
     
         color: black;
-
-        background-color: #adadad;
     }
     
     .title{
@@ -306,7 +306,9 @@
         font-size: 15px;
     
         border-radius: 10px;
-        background-color: #adadad;
+        border: 1px solid #adadad;
+        
+        background-color: white;
         padding: 3px 10px;
     
         margin-top: 10px;
@@ -410,7 +412,7 @@
         max-width: 285px;
         max-height: fit-content;
         
-        background-color: #e5e7eb;
+        background-color: white;
     }
     
     @keyframes rotate-vertical-center{
@@ -438,15 +440,12 @@
         min-height: 190px;
     
         color: black;
-
-        background-color: #adadad;
     }
     
     .title{
         font-weight: bold;
         font-size: 25px;
         font-family: 'Times New Roman', Times, serif;
-        /* text-align: center; */
     
         margin-bottom: 20px;
     }
