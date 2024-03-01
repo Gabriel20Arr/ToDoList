@@ -7,6 +7,8 @@ import {config} from "dotenv"
 config()
 const { TOKEN_SECRET } = process.env;
 
+//? duracion del token de sesion
+const expirationToken = 3600000;
 
 export const registers = async (req, res) => {
     const { username, profile, email, password } = req.body;
@@ -34,7 +36,7 @@ export const registers = async (req, res) => {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        maxAge: 3600000, 
+        maxAge: expirationToken, 
         path: "/"
     });    
 
@@ -52,6 +54,7 @@ export const registers = async (req, res) => {
     }
 }
 
+
 export const login = async (req, res) =>  {
     const { email, password } = req.body;
 
@@ -64,14 +67,15 @@ export const login = async (req, res) =>  {
 
         const token = await createAccessToken({id: userFound._id})
 
-    // res.cookie("token", token)
-    res.cookie("token", token, {
-        httpOnly: true,
-        sameSite: 'none', 
-        secure: true,
-        maxAge: 3600000,
-        path: "/"
-    });   
+        
+        res.cookie("token", token)
+        // res.cookie("token", token, {
+        //     httpOnly: true,
+        //     sameSite: 'none', 
+        //     secure: true,
+        //     maxAge: expirationToken,
+        //     path: "/"
+        // });   
 
     /*
         .cookie('token', tokenReceived.token, {
