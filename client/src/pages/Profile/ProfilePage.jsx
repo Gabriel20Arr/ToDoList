@@ -21,7 +21,6 @@ export const ProfilePage = () => {
       res()
   }, [profile])
 
-  console.log(dataP);
   return (
     <div className={styles.container0}>
         <h1 className={styles.t}>Profile</h1>

@@ -23,8 +23,8 @@ export const AuthProvider = ({children}) => {
         try {
             const res = await registerRequest(user) 
             setUser(res.data)
-            setAuthenticated(true)
             // console.log("Auth:", user)
+            setAuthenticated(true)
         } catch (error) {
             setErrores(error.response.data)
         }
@@ -106,7 +106,7 @@ export const AuthProvider = ({children}) => {
     const forget_Pass = async (id) => {
         try {
             const res = await forgetPasswordRequet(id)
-            console.log(res);
+            // console.log(res);
         } catch (error) {
             console.log(error);
         }
