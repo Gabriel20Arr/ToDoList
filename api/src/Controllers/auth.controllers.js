@@ -33,11 +33,10 @@ export const registers = async (req, res) => {
 
     // res.cookie("token", token)  
     res.cookie("token", token, {
+        maxAge: expirationToken, 
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        maxAge: expirationToken, 
-        path: "/"
     });    
 
     res.json({
@@ -54,7 +53,6 @@ export const registers = async (req, res) => {
     }
 }
 
-
 export const login = async (req, res) =>  {
     const { email, password } = req.body;
 
@@ -68,14 +66,13 @@ export const login = async (req, res) =>  {
         const token = await createAccessToken({id: userFound._id})
 
         
-        res.cookie("token", token)
-        // res.cookie("token", token, {
-        //     httpOnly: true,
-        //     sameSite: 'none', 
-        //     secure: true,
-        //     maxAge: expirationToken,
-        //     path: "/"
-        // });   
+        // res.cookie("token", token)
+        res.cookie("token", token, {
+            maxAge: expirationToken,
+            httpOnly: true,
+            sameSite: 'none', 
+            secure: true,
+        });   
 
     /*
         .cookie('token', tokenReceived.token, {
